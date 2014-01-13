@@ -1,4 +1,4 @@
-Security-Service-Validation-and-Verification-package
-====================================================
+Security-Service-Validation-and-Verification
+============================================
 
-Security Service Validation and Verification package
+Security Service Validation and Verification
