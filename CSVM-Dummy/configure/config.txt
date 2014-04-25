@@ -1,0 +1,5 @@
+# CSVM-Dummy Configuration File
+
+# Address of the Web Service (without ?wsdl at the end)
+#address = http://localhost:9095/csvm
+address = http://ec2-54-235-118-152.compute-1.amazonaws.com:9095/csvm

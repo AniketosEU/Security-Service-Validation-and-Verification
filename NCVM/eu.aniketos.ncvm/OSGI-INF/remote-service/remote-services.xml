@@ -1,0 +1,23 @@
+<service-descriptions xmlns="http://www.osgi.org/xmlns/sd/v1.0.0">
+	<service-description>
+		<provide interface="eu.aniketos.wp3.components.spdm.ds.api.ISPDMService"></provide>
+		<property name="service.exported.interfaces">*</property>
+		<property name="service.exported.configs">org.apache.cxf.ws</property>
+		<property name="org.apache.cxf.ws.address">http://localhost:9091/spdm_service</property>
+	</service-description>	
+	
+	<service-description>
+		<provide interface="eu.aniketos.components.verification.compositionsecurityvalidation.CompositionSecurityValidationService"></provide>
+		<property name="service.exported.interfaces">*</property>
+		<property name="service.exported.configs">org.apache.cxf.ws</property>
+		<property name="org.apache.cxf.ws.address">http://Montefalco:9090/mock/csvm</property>
+	</service-description>
+
+	<service-description>
+		<provide interface="eu.aniketos.ncvm.mock.pvm.IPropertyVerificationService"></provide>
+		<property name="service.exported.interfaces">*</property>
+		<property name="service.exported.configs">org.apache.cxf.ws</property>
+		<property name="org.apache.cxf.ws.address">http://Montefalco:9090/mock/pvm</property>
+	</service-description>
+
+</service-descriptions>

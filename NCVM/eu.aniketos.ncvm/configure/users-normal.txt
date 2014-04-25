@@ -1,0 +1,6 @@
+# List here the users that have NORMAL access
+# One user per line in Apache hash format
+# Generate using "htpasswd -n <username>"
+# See https://httpd.apache.org/docs/2.2/misc/password_encryptions.html
+
+Guest:$apr1$le57cavT$7J7vIV5lDd7AHz7QU9YQy1

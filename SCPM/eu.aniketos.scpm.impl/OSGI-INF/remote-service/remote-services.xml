@@ -1,0 +1,29 @@
+<service-descriptions xmlns="http://www.osgi.org/xmlns/sd/v1.0.0">
+
+<!--
+	<service-description>
+		<provide interface="eu.aniketos.wp3.components.spdm.ds.api.ISPDMService"></provide>
+		<property name="service.exported.interfaces">*</property>
+		<property name="service.exported.configs">org.apache.cxf.ws</property>
+		<property name="org.apache.cxf.ws.address">http://ec2-54-235-118-152.compute-1.amazonaws.com:9091/spdm_service</property>
+	</service-description>	
+	
+		<service-description>
+		<provide interface="eu.aniketos.wp2.components.contractmanager.IContractManagement"> </provide>
+		<property name="service.exported.interfaces">*</property>
+		<property name="service.exported.configs">org.apache.cxf.ws</property>
+		<property name="org.apache.cxf.ws.address">http://localhost:9090/contractmanager</property>
+	</service-description>
+	-->
+	
+	<service-description>
+		<provide interface="eu.aniketos.ncvm.INestedCompositionVerification"> </provide>
+		<property name="service.exported.interfaces">*</property>
+		<property name="service.exported.configs">org.apache.cxf.ws</property>
+		<property name="org.apache.cxf.ws.address">http://ec2-54-235-118-152.compute-1.amazonaws.com:9093/ncvm</property>
+		<property name="javax.xml.ws.client.receiveTimeout">600000</property>
+	</service-description>
+	
+
+
+</service-descriptions>

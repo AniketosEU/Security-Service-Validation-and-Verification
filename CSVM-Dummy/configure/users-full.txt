@@ -1,0 +1,6 @@
+# List here the users that have FULL access
+# One user per line in Apache hash format
+# Generate using "htpasswd -n <username>"
+# See https://httpd.apache.org/docs/2.2/misc/password_encryptions.html
+
+Aniketos:$apr1$BnkINIkJ$j66rMhBdb7plJ4q472ohd/

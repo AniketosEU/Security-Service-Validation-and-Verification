@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<specification id="Integrity_MD5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd_aniketos.xsd">
+<definition><identifier>Integrity_MD5</identifier><parameter><type>string</type><identifier>guardedSender</identifier></parameter></definition>
+<maxint>32000</maxint>
+<maxlen>1000</maxlen>
+<scope>session</scope>
+<securitystate><declaration><type>string</type><identifier>md5_hash</identifier><value><sconst>_</sconst></value></declaration></securitystate>
+<rule><before><identifier>ProcessingService.IProcessInput.getUserProfile</identifier><parameter><type>string</type><identifier>sender</identifier></parameter><parameter><type>string</type><identifier>data</identifier></parameter></before>
+<perform>
+<reaction>
+<guard><s_equal><s_identifier>guardedSender</s_identifier><s_identifier>sender</s_identifier></s_equal></guard>
+<update>
+<assign>
+<s_identifier>md5_hash</s_identifier><value><invocation><s_identifier>MD5Hash</s_identifier><s_identifier>result</s_identifier><argument><s_identifier>data</s_identifier></argument></invocation></value></assign></update></reaction><reaction><guard><not><s_equal><s_identifier>guardedSender</s_identifier><s_identifier>sender</s_identifier></s_equal></not></guard><update /></reaction></perform></rule><rule><before><identifier>getUserProfileImplementation</identifier><parameter><type>string</type><identifier>sender</identifier></parameter><parameter><type>string</type><identifier>data</identifier></parameter></before><perform><reaction><guard><and><s_equal><s_identifier>guardedSender</s_identifier><s_identifier>sender</s_identifier></s_equal>
+<s_equal>
+<s_identifier>md5_hash</s_identifier>
+<invocation>
+<s_identifier>MD5Hash</s_identifier>
+<s_identifier>result</s_identifier>
+<argument>
+<s_identifier>data</s_identifier>
+</argument>
+</invocation>
+</s_equal></and></guard><update /></reaction><reaction><guard><not><s_equal><s_identifier>guardedSender</s_identifier><s_identifier>sender</s_identifier></s_equal></not></guard><update /></reaction></perform></rule></specification>

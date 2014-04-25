@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Export-Package: eu.aniketos.spdm;uses:="eu.aniketos.csstm,org.osgi.uti
+ l.tracker,eu.aniketos.spdm.ds.api,org.osgi.framework,eu.aniketos.data
+ ,javax.persistence,org.osgi.service.component";version="1.0.0.SNAPSHO
+ T",eu.aniketos.spdm.ds.impl;uses:="org.apache.commons.collections.ite
+ rators,org.apache.commons.lang.builder,org.osgi.util.tracker,eu.anike
+ tos.spdm.ds.api,org.osgi.framework,eu.aniketos.data,javax.persistence
+ ,org.osgi.service.component";version="1.0.0.SNAPSHOT",eu.aniketos.spd
+ m.ds.api;uses:="eu.aniketos.data";version="1.0.0.SNAPSHOT"
+Service-Component: OSGI-INF/serviceComponents.xml
+Built-By: flypig
+Tool: Bnd-0.0.255
+Bundle-Name: eu.aniketos.spdm.ds-spdm-bundle [eu.aniketos.spdm]
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.6.0_30
+Bundle-Version: 1.0.0.SNAPSHOT
+Bnd-LastModified: 1395659267118
+Bundle-ManifestVersion: 2
+Bundle-Description: Generated using Pax-Construct
+Import-Package: eu.aniketos.csstm;version="0.1.0.SNAPSHOT",eu.aniketos
+ .data;version="1.0.0.SNAPSHOT",eu.aniketos.spdm;version="1.0.0.SNAPSH
+ OT",eu.aniketos.spdm.ds.api;version="1.0.0.SNAPSHOT",eu.aniketos.spdm
+ .ds.impl;version="1.0.0.SNAPSHOT",javax.persistence;version="1.1",org
+ .apache.commons.collections.iterators;version="3.2",org.apache.common
+ s.lang.builder;version="2.6",org.osgi.framework;version="1.5",org.osg
+ i.service.component;version="1.1",org.osgi.util.tracker;version="1.4"
+Bundle-SymbolicName: eu.aniketos.spdm.ds-spdm-bundle
+

@@ -1,0 +1,15 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+    <command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.0.0">
+
+        <command name="spdm/cache">
+            <action class="eu.aniketos.spdm.ds.test.CacheCommand"/>
+        </command>
+
+        <command name="spdm/clear">
+            <action class="eu.aniketos.spdm.ds.test.ClearCommand"/>
+        </command>
+
+    </command-bundle>
+
+</blueprint>

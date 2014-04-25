@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<specification id="No_Repudiation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd_aniketos.xsd">
+<definition><identifier>No_Repudiation</identifier><parameter><type>string</type><identifier>guardedTask</identifier></parameter></definition>
+<maxint>32000</maxint>
+<maxlen>1000</maxlen>
+<scope>session</scope>
+<securitystate>
+<declaration><type>bool</type><identifier>sent</identifier><value><bconst>false</bconst></value></declaration>
+</securitystate><rule><before><identifier>activity.ack</identifier>
+<parameter><type>string</type><identifier>id</identifier></parameter>
+<parameter><type>string</type><identifier>securityAnnotationType</identifier></parameter>
+<parameter><type>string</type><identifier>name</identifier></parameter>
+<parameter><type>string</type><identifier>taskref</identifier></parameter>
+<parameter><type>string</type><identifier>assignee</identifier></parameter>
+<parameter><type>string</type><identifier>task</identifier></parameter>
+<parameter><type>string</type><identifier>exec</identifier></parameter>
+</before>
+<perform>
+<reaction>
+<guard><and><s_equal><s_identifier>guardedTask</s_identifier><s_identifier>task</s_identifier></s_equal><s_equal><s_identifier>assignee</s_identifier><s_identifier>exec</s_identifier></s_equal></and></guard>
+<update><assign><b_identifier>sent</b_identifier><value><bconst>true</bconst></value></assign></update>
+</reaction>
+<reaction>
+<guard><not><s_equal><s_identifier>guardedTask</s_identifier><s_identifier>task</s_identifier></s_equal></not></guard>
+<update />
+</reaction>
+</perform>
+</rule>
+<rule>
+<before>
+<identifier>activity.start</identifier>
+<parameter><type>string</type><identifier>id</identifier></parameter>
+<parameter><type>string</type><identifier>name</identifier></parameter>
+<parameter><type>string</type><identifier>type</identifier></parameter>
+<parameter><type>int</type><identifier>time</identifier></parameter>
+<parameter><type>int</type><identifier>date</identifier></parameter>
+<parameter><type>string</type><identifier>exec</identifier></parameter>
+<parameter><type>string</type><identifier>input</identifier></parameter>
+</before>
+<perform>
+<reaction>
+<guard><not><s_equal><s_identifier>guardedTask</s_identifier><s_identifier>name</s_identifier></s_equal></not></guard>
+<update />
+</reaction>
+<reaction>
+<guard><and><s_equal><s_identifier>guardedTask</s_identifier><s_identifier>name</s_identifier></s_equal><b_equal><b_identifier>sent</b_identifier><bconst>true</bconst></b_equal></and></guard>
+<update />
+</reaction>
+</perform>
+</rule>
+<rule>
+<after><identifier>activity.start</identifier>
+<parameter><type>string</type><identifier>id</identifier></parameter>
+<parameter><type>string</type><identifier>name</identifier></parameter>
+<parameter><type>string</type><identifier>type</identifier></parameter>
+<parameter><type>int</type><identifier>time</identifier></parameter>
+<parameter><type>int</type><identifier>date</identifier></parameter>
+<parameter><type>string</type><identifier>exec</identifier></parameter>
+<parameter><type>string</type><identifier>input</identifier></parameter>
+<return><type>void</type><identifier>return</identifier></return></after><perform><reaction><guard><s_equal><s_identifier>guardedTask</s_identifier><s_identifier>name</s_identifier></s_equal></guard><update><assign><b_identifier>sent</b_identifier><value><bconst>false</bconst></value></assign></update></reaction><reaction><guard><not><s_equal><s_identifier>guardedTask</s_identifier><s_identifier>name</s_identifier></s_equal></not></guard><update /></reaction></perform></rule></specification>

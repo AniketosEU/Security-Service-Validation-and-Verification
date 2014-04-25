@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+ 
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="SCPM"
+            id="eu.aniketos.scpm.userinterface">
+      </category>
+      <view
+            name="SCPM"
+            icon="icons/sample.gif"
+            category="eu.aniketos.scpm.userinterface"
+            class="eu.aniketos.scpm.userinterface.views.ScpmUI"
+            id="eu.aniketos.scpm.userinterface.mainView">
+      </view>
+   </extension>
+  
+
+
+</plugin>

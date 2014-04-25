@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SPDMProxy
+Bundle-SymbolicName: eu.aniketos.ncvm.spdm.proxy
+Bundle-Version: 1.0.0.qualifier
+Export-Package: eu.aniketos.ncvm.spdm.proxy
+Bundle-ActivationPolicy: lazy
+DynamicImport-Package: *
+Bundle-Activator: eu.aniketos.ncvm.spdm.proxy.Activator
+Import-Package: eu.aniketos.data;version="1.0.0.SNAPSHOT",
+ eu.aniketos.ncvm.userinterface.proxy,
+ javax.xml.namespace,
+ javax.xml.ws,
+ org.osgi.framework;version="1.7.0"
+Bundle-ClassPath: lib/spdm-client-0.0.1-SNAPSHOT.jar,
+ .

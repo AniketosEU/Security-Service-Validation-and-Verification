@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component enabled="true" name="eu.aniketos.spdm.ds.test.DSClient" activate="activate">
+        <implementation class="eu.aniketos.spdm.ds.test.DSClient"/>
+        <property name="service.pid" value="eu.aniketos.spdm.ds.test.DSClient" private="false"/>
+        <reference name="security_desciptor" interface="eu.aniketos.data.ISecurityDescriptor" cardinality="0..n" policy="dynamic" bind="bindSecurityDescriptor" unbind="unbindSecurityDescriptor" checked="true" strategy="event"/>
+        <reference name="security_property" interface="eu.aniketos.data.ISecurityProperty" cardinality="0..n" policy="dynamic" bind="bindSecurityProperty" unbind="unbindSecurityProperty" checked="true" strategy="event"/>
+        <reference name="sps_repository" interface="eu.aniketos.spdm.ds.api.ISPSRepository" cardinality="0..n" policy="dynamic" bind="bindSPSRepository" unbind="unbindSPSRepository" checked="true" strategy="event"/>
+        <reference name="web_service" interface="eu.aniketos.spdm.ds.api.IWebService" cardinality="0..n" policy="dynamic" bind="bindWebService" unbind="unbindWebService" checked="true" strategy="event"/>
+    </scr:component>
+</components>

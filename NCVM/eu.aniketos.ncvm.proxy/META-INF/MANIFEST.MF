@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NCVMProxy
+Bundle-SymbolicName: eu.aniketos.ncvm.proxy
+Bundle-Version: 1.0.0.qualifier
+Import-Package: eu.aniketos.data;version="1.0.0.SNAPSHOT",
+ eu.aniketos.ncvm.userinterface.proxy,
+ javax.xml.namespace,
+ javax.xml.ws,
+ org.osgi.framework
+Bundle-ActivationPolicy: lazy
+DynamicImport-Package: *
+Bundle-Activator: eu.aniketos.ncvm.proxy.Activator
+Export-Package: eu.aniketos.ncvm,
+ eu.aniketos.ncvm.proxy
+Bundle-ClassPath: lib/ncvm-client-0.0.1-SNAPSHOT.jar,
+ .

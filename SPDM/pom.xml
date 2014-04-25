@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2013, Aneel Rahim, Bernard Butler and Arif Fareed (Waterford Institute of Technology, Ireland), Project: FP7-ICT-257930 Aniketos
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+ -  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ -  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ -  Neither the name of WATERFORD INSTITUTE OF TECHNOLOGY nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!--
+   | put company details here
+  <organization>
+    <name>...</name>
+    <url>http://...</url>
+  </organization>
+  -->
+
+  <!--
+   | put license details here
+  <licenses>
+    <license>
+      <name>...</name>
+      <url>http://...</url>
+      <comments>
+      </comments>
+    </license>
+  </licenses>
+  -->
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>eu.aniketos.spdm</groupId>
+  <artifactId>spdm-project</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>eu.aniketos.spdm.project (OSGi project)</name>
+
+  <!--
+   | describe your project here
+  -->
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>aniketos-snapshots</id>
+      <url>http://ec2-54-235-118-152.compute-1.amazonaws.com:8080/archiva/repository/aniketos-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>aniketos-snapshots</id>
+      <name>Aniketos Managed Snapshot Repository</name>
+      <url>http://ec2-54-235-118-152.compute-1.amazonaws.com:8080/archiva/repository/aniketos-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <description>Generated using Pax-Construct</description>
+
+  <properties>
+    <!--
+     | some example OSGi runtime properties
+    -->
+    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
+    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+    <!-- Removing Mac UTF8 Warning -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+     <felix-version>2.0.1</felix-version>
+ 
+  </properties>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>poms</module>
+    <module>provision</module>
+    <module>ds-api-bundle</module>
+    <module>ds-impl-bundle</module>
+    <module>ds-test-bundle</module>
+    <module>ds-datatype-bundle</module>
+    <module>ds-spdm-bundle</module>
+    <module>ds-console-bundle</module>
+    <module>feature</module>
+  </modules>
+
+  <build>
+     <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    
+    <plugins>
+      <plugin>
+        <groupId>org.ops4j</groupId>
+        <artifactId>maven-pax-plugin</artifactId>
+        <version>1.5</version>
+        <configuration>
+          <framework>equinox</framework>
+        </configuration>
+        <executions>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-scr-plugin</artifactId>
+        <version>1.7.4</version>
+        <executions>
+          <execution>
+            <id>generate-scr-descriptions</id>
+            <goals>
+              <goal>scr</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Bundle Plugins plus for Log Service -->
+      
+      <!--  Karaf Features.xml
+    
+       <plugin>
+        <groupId>org.apache.karaf.tooling</groupId>
+        <artifactId>features-maven-plugin</artifactId>
+        <version>2.2.9</version>
+        <executions>
+          <execution>
+            <id>generate-features-filelt</id>
+            <goals>
+              <goal>generate-features-file</goal>
+            </goals>
+            <configuration>
+              <karafVersion>2.3.0</karafVersion>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+-->
+
+  </plugins>
+  </build>
+
+  <dependencies>
+
+
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.osgi.compendium</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+
+
+<dependency>
+	<groupId>org.apache.geronimo.specs</groupId>
+	<artifactId>geronimo-servlet_2.5_spec</artifactId>
+	<version>1.2</version>
+</dependency>
+            
+            
+
+<!--            
+<dependency>
+<groupId>org.apache.cxf.dosgi</groupId>
+<artifactId>cxf-dosgi-ri-singlebundle-distribution</artifactId>
+<version>1.3.1</version>
+</dependency>
+-->
+
+  </dependencies>
+
+</project>

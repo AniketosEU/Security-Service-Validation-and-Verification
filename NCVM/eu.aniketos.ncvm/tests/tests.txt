@@ -1,0 +1,6 @@
+# NCVM Test Configuration File
+
+#Details = http://www.cms.livjm.ac.uk/nistl/dnload/aniketos/example-safe.zip
+Details = http://www.cms.livjm.ac.uk/nistl/dnload/aniketos/hotelbooking_A_Compliant.wsdl
+ServiceID = http://localhost:8080/testComposition/service?wsdl
+PropertyID = SoD

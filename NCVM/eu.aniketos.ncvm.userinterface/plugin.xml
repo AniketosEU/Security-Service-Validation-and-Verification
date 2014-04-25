@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Aniketos"
+            id="eu.aniketos">
+      </category>
+      <view
+            name="NCVM"
+            icon="icons/aniketos-small.png"
+            category="eu.aniketos"
+            class="eu.aniketos.ncvm.userinterface.views.NCVM"
+            id="eu.aniketos.ncvm.userinterface.views.NCVM">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="right"
+               id="eu.aniketos.ncvm.userinterface.views.NCVM">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+
+</plugin>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component enabled="true" name="sps-repository-service" activate="activateServiceCentre" deactivate="deactivateServiceCentre">
+        <implementation class="eu.aniketos.spdm.ds.impl.SPSRepository"/>
+        <service servicefactory="false">
+            <provide interface="eu.aniketos.spdm.ds.api.ISPSRepository"/>
+        </service>
+        <property name="service.description" type="String" value="Security Centre Service" private="false"/>
+        <property name="service.vendor" type="String" value="Aniketos SPDM" private="false"/>
+        <property name="service.exported.interfaces" type="String" value="*" private="false"/>
+        <property name="service.exported.configs" type="String" value="org.apache.cxf.ws" private="false"/>
+        <property name="org.apache.cxf.ws.address" type="String" value="http://ec2-54-235-118-152.compute-1.amazonaws.com:9091/spdm_spsrepository" private="false"/>
+        <property name="service.pid" value="sps-repository-service" private="false"/>
+    </scr:component>
+    <scr:component enabled="true" name="securitydescriptor-service" activate="activateSecurityDescriptor" deactivate="deactivateSecurityDescriptor">
+        <implementation class="eu.aniketos.spdm.ds.impl.SecurityDescriptor"/>
+        <service servicefactory="false">
+            <provide interface="eu.aniketos.data.ISecurityDescriptor"/>
+            <provide interface="java.io.Serializable"/>
+        </service>
+        <property name="service.description" type="String" value="Security Descriptor Service" private="false"/>
+        <property name="service.vendor" type="String" value="Aniketos SPDM" private="false"/>
+        <property name="service.exported.interfaces" type="String" value="*" private="false"/>
+        <property name="service.exported.configs" type="String" value="org.apache.cxf.ws" private="false"/>
+        <property name="org.apache.cxf.ws.address" type="String" value="http://ec2-54-235-118-152.compute-1.amazonaws.com:9091/spdm_securitydescriptor" private="false"/>
+        <property name="service.pid" value="securitydescriptor-service" private="false"/>
+    </scr:component>
+    <scr:component enabled="true" name="security-property-service" activate="activateSecurityProperty" deactivate="deactivateSecurityProperty">
+        <implementation class="eu.aniketos.spdm.ds.impl.SecurityProperty"/>
+        <service servicefactory="false">
+            <provide interface="eu.aniketos.data.ISecurityProperty"/>
+            <provide interface="java.io.Serializable"/>
+        </service>
+        <property name="service.description" type="String" value="Security Property Service" private="false"/>
+        <property name="service.vendor" type="String" value="Aniketos SPDM" private="false"/>
+        <property name="service.exported.interfaces" type="String" value="*" private="false"/>
+        <property name="service.exported.configs" type="String" value="org.apache.cxf.ws" private="false"/>
+        <property name="org.apache.cxf.ws.address" type="String" value="http://ec2-54-235-118-152.compute-1.amazonaws.com:9091/spdm_securityproperty" private="false"/>
+        <property name="service.pid" value="security-property-service" private="false"/>
+    </scr:component>
+    <scr:component enabled="true" name="web-service" activate="activateWebService" deactivate="deactivateWebService">
+        <implementation class="eu.aniketos.spdm.ds.impl.WebService"/>
+        <service servicefactory="false">
+            <provide interface="eu.aniketos.spdm.ds.api.IWebService"/>
+        </service>
+        <property name="service.description" type="String" value="Web Service" private="false"/>
+        <property name="service.vendor" type="String" value="Aniketos SPDM" private="false"/>
+        <property name="service.exported.interfaces" type="String" value="*" private="false"/>
+        <property name="service.exported.configs" type="String" value="org.apache.cxf.ws" private="false"/>
+        <property name="org.apache.cxf.ws.address" type="String" value="http://ec2-54-235-118-152.compute-1.amazonaws.com:9091/web-service" private="false"/>
+        <property name="service.pid" value="web-service" private="false"/>
+    </scr:component>
+</components>

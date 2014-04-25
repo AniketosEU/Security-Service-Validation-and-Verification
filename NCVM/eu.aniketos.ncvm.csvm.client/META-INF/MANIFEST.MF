@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CSVM-Client
+Bundle-SymbolicName: eu.aniketos.ncvm.csvm.client
+Bundle-Version: 1.0.0.qualifier
+Export-Package: eu.aniketos.ncvm.csvm.client
+Import-Package: eu.aniketos.components.verification.compositionsecurityvalidation

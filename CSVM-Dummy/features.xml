@@ -1,0 +1,10 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+	<feature name="CSVM-Dummy" version="1.0.0">
+		<!-- CSVM Aniketos dependencies -->
+		<bundle>mvn:eu.aniketos.data/common-datatypes/1.0.0-SNAPSHOT</bundle>
+
+		<!-- CSVM-Dummy installation -->
+		<bundle>mvn:eu.aniketos.csvm/csvm-dummy/0.0.1-SNAPSHOT</bundle>
+	</feature>
+</features>
+

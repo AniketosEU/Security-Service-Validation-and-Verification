@@ -1,0 +1,7 @@
+<specificationShort id="Trustworthiness_short" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd_aniketosShort.xsd">
+  <identifier>Trustworthiness</identifier> 
+<parameter>
+  <type>string</type> 
+  <identifier>Book_rooms</identifier> 
+  </parameter>
+</specificationShort> 

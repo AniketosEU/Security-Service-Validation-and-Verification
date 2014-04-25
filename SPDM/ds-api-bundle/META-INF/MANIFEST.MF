@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Export-Package: eu.aniketos.spdm.ds.api;version="1.0.0.
+ SNAPSHOT"
+Bundle-ClassPath: .,target/pax-eclipse
+Built-By: afareed
+Tool: Bnd-0.0.255
+Bundle-Name: eu.aniketos.spdm.ds-api-bundle [eu.aniketo
+ s.spdm.ds.api]
+Created-By: Apache Maven Bundle Plugin
+Bundle-Version: 1.0.0.SNAPSHOT
+Build-Jdk: 1.6.0_31
+Bnd-LastModified: 1335956203408
+Bundle-ManifestVersion: 2
+Bundle-Description: Generated using Pax-Construct
+Import-Package: eu.aniketos.spdm.ds.api;version="1.0.0.
+ SNAPSHOT"
+Bundle-SymbolicName: eu.aniketos.spdm.ds-api-bundle
+

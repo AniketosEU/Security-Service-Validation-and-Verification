@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Export-Package: eu.aniketos.spdm.console;uses:="eu.aniketos.marketplac
+ e,eu.aniketos.trustworthiness.ext.messaging,org.osgi.util.tracker,eu.
+ aniketos.spdm.ds.api,org.osgi.framework,eu.aniketos.data";version="1.
+ 0.0.SNAPSHOT"
+Built-By: flypig
+Tool: Bnd-1.15.0
+Bundle-Name: eu.aniketos.spdm.ds-console-bundle [eu.aniketos.spdm.cons
+ ole]
+Created-By: Apache Maven Bundle Plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Build-Jdk: 1.6.0_30
+Bundle-Version: 1.0.0.SNAPSHOT
+Bnd-LastModified: 1395659269702
+Bundle-ManifestVersion: 2
+Bundle-Activator: eu.aniketos.spdm.console.Activator
+Bundle-Description: Generated using Pax-Construct
+Import-Package: eu.aniketos.data;version="[1.0,2)",eu.aniketos.marketp
+ lace;version="[1.0,2)",eu.aniketos.spdm.ds.api;version="[1.0,2)",eu.a
+ niketos.trustworthiness.ext.messaging,org.osgi.framework;version="[1.
+ 5,2)",org.osgi.util.tracker;version="[1.4,2)"
+Bundle-SymbolicName: eu.aniketos.spdm.ds-console-bundle
+

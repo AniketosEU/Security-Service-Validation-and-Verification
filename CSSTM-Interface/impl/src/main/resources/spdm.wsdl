@@ -1,0 +1,775 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.ds.spdm.components.wp3.aniketos.eu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ISPDMService" targetNamespace="http://api.ds.spdm.components.wp3.aniketos.eu/">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://security.java" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://security.java">
+<xsd:complexType name="Key">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="algorithm" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="encoded" nillable="true" type="xsd:base64Binary"/>
+<xsd:element minOccurs="0" name="format" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="PublicKey">
+<xsd:complexContent>
+<xsd:extension base="tns:Key">
+<xsd:sequence/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:complexType name="Principal">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="name" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cert.security.java" xmlns:ns3="http://x500.auth.security.javax" xmlns:ns2="http://security.java" xmlns:ns1="http://cxf.apache.org/arrays" xmlns:ns0="http://api.ds.spdm.components.wp3.aniketos.eu/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://cert.security.java">
+<xsd:import namespace="http://api.ds.spdm.components.wp3.aniketos.eu/"/>
+<xsd:import namespace="http://cxf.apache.org/arrays"/>
+<xsd:import namespace="http://security.java"/>
+<xsd:import namespace="http://x500.auth.security.javax"/>
+<xsd:complexType abstract="true" name="X509Certificate">
+<xsd:complexContent>
+<xsd:extension base="tns:Certificate">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="TBSCertificate" nillable="true" type="xsd:base64Binary"/>
+<xsd:element minOccurs="0" name="basicConstraints" type="xsd:int"/>
+<xsd:element minOccurs="0" name="extendedKeyUsage" nillable="true" type="ns0:ArrayOfString"/>
+<xsd:element minOccurs="0" name="issuerAlternativeNames" nillable="true" type="ns1:ArrayOfArrayOfAnyType"/>
+<xsd:element minOccurs="0" name="issuerDN" nillable="true" type="ns2:Principal"/>
+<xsd:element minOccurs="0" name="issuerUniqueID" nillable="true" type="ns0:ArrayOfBoolean"/>
+<xsd:element minOccurs="0" name="issuerX500Principal" nillable="true" type="ns3:X500Principal"/>
+<xsd:element minOccurs="0" name="keyUsage" nillable="true" type="ns0:ArrayOfBoolean"/>
+<xsd:element minOccurs="0" name="notAfter" type="xsd:dateTime"/>
+<xsd:element minOccurs="0" name="notBefore" type="xsd:dateTime"/>
+<xsd:element minOccurs="0" name="serialNumber" nillable="true" type="xsd:integer"/>
+<xsd:element minOccurs="0" name="sigAlgName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="sigAlgOID" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="sigAlgParams" nillable="true" type="xsd:base64Binary"/>
+<xsd:element minOccurs="0" name="signature" nillable="true" type="xsd:base64Binary"/>
+<xsd:element minOccurs="0" name="subjectAlternativeNames" nillable="true" type="ns1:ArrayOfArrayOfAnyType"/>
+<xsd:element minOccurs="0" name="subjectDN" nillable="true" type="ns2:Principal"/>
+<xsd:element minOccurs="0" name="subjectUniqueID" nillable="true" type="ns0:ArrayOfBoolean"/>
+<xsd:element minOccurs="0" name="subjectX500Principal" nillable="true" type="ns3:X500Principal"/>
+<xsd:element minOccurs="0" name="version" type="xsd:int"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:complexType abstract="true" name="Certificate">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="encoded" nillable="true" type="xsd:base64Binary"/>
+<xsd:element minOccurs="0" name="publicKey" nillable="true" type="ns2:PublicKey"/>
+<xsd:element minOccurs="0" name="type" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://x500.auth.security.javax" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://x500.auth.security.javax">
+<xsd:complexType name="X500Principal">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="encoded" nillable="true" type="xsd:base64Binary"/>
+<xsd:element minOccurs="0" name="name" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cxf.apache.org/arrays" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://cxf.apache.org/arrays">
+<xsd:complexType name="ArrayOfAnyType">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="anyType" nillable="true" type="xsd:anyType"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfArrayOfAnyType">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ArrayOfAnyType" nillable="true" type="tns:ArrayOfAnyType"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://util.java" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://util.java">
+<xsd:complexType name="Entry">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="key" nillable="true" type="xsd:anyType"/>
+<xsd:element minOccurs="0" name="value" nillable="true" type="xsd:anyType"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfEntry">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="Entry" nillable="true" type="tns:Entry"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.ds.spdm.components.wp3.aniketos.eu/" xmlns:ns1="http://api.ds.spdm.components.wp3.aniketos.eu" xmlns:ns0="http://data.aniketos.eu" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://api.ds.spdm.components.wp3.aniketos.eu/">
+<xsd:import namespace="http://data.aniketos.eu"/>
+<xsd:import namespace="http://api.ds.spdm.components.wp3.aniketos.eu"/>
+<xsd:complexType name="ArrayOfBoolean">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="boolean" type="xsd:boolean"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfString">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="removeSeucrityProeprty" type="tns:removeSeucrityProeprty"/>
+<xsd:complexType name="removeSeucrityProeprty">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="arg0" type="ns0:ISecurityProperty"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="removeSeucrityProeprtyResponse" type="tns:removeSeucrityProeprtyResponse"/>
+<xsd:complexType name="removeSeucrityProeprtyResponse">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="print_ws_entries" type="tns:print_ws_entries"/>
+<xsd:complexType name="print_ws_entries">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="print_ws_entriesResponse" type="tns:print_ws_entriesResponse"/>
+<xsd:complexType name="print_ws_entriesResponse">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="fetchRepository" type="tns:fetchRepository"/>
+<xsd:complexType name="fetchRepository">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="fetchRepositoryResponse" type="tns:fetchRepositoryResponse"/>
+<xsd:complexType name="fetchRepositoryResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns1:ISPSRepository"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getService" type="tns:getService"/>
+<xsd:complexType name="getService">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getServiceResponse" type="tns:getServiceResponse"/>
+<xsd:complexType name="getServiceResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns1:IWebService"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="registerService1" type="tns:registerService1"/>
+<xsd:complexType name="registerService1">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="arg0" type="ns1:IWebService"/>
+<xsd:element minOccurs="0" name="arg1" type="ns0:ISecurityProperty"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="registerService1Response" type="tns:registerService1Response"/>
+<xsd:complexType name="registerService1Response">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="print_repository" type="tns:print_repository"/>
+<xsd:complexType name="print_repository">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="print_repositoryResponse" type="tns:print_repositoryResponse"/>
+<xsd:complexType name="print_repositoryResponse">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="lookupService" type="tns:lookupService"/>
+<xsd:complexType name="lookupService">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="arg0" type="ns0:ISecurityProperty"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="lookupServiceResponse" type="tns:lookupServiceResponse"/>
+<xsd:complexType name="lookupServiceResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns1:ArrayOfIWebService"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="unregisterService" type="tns:unregisterService"/>
+<xsd:complexType name="unregisterService">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="arg0" type="ns1:IWebService"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="unregisterServiceResponse" type="tns:unregisterServiceResponse"/>
+<xsd:complexType name="unregisterServiceResponse">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="lookUpSecurityProperty" type="tns:lookUpSecurityProperty"/>
+<xsd:complexType name="lookUpSecurityProperty">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="arg0" type="ns1:IWebService"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="lookUpSecurityPropertyResponse" type="tns:lookUpSecurityPropertyResponse"/>
+<xsd:complexType name="lookUpSecurityPropertyResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfISecurityProperty"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getSecurityProperty1" type="tns:getSecurityProperty1"/>
+<xsd:complexType name="getSecurityProperty1">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getSecurityProperty1Response" type="tns:getSecurityProperty1Response"/>
+<xsd:complexType name="getSecurityProperty1Response">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ISecurityProperty"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="cache_size" type="tns:cache_size"/>
+<xsd:complexType name="cache_size">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="cache_sizeResponse" type="tns:cache_sizeResponse"/>
+<xsd:complexType name="cache_sizeResponse">
+<xsd:sequence>
+<xsd:element name="return" type="xsd:int"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getSecurityProperty" type="tns:getSecurityProperty"/>
+<xsd:complexType name="getSecurityProperty">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getSecurityPropertyResponse" type="tns:getSecurityPropertyResponse"/>
+<xsd:complexType name="getSecurityPropertyResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ISecurityProperty"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getVerifiedProperties" type="tns:getVerifiedProperties"/>
+<xsd:complexType name="getVerifiedProperties">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="arg0" type="ns1:IWebService"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getVerifiedPropertiesResponse" type="tns:getVerifiedPropertiesResponse"/>
+<xsd:complexType name="getVerifiedPropertiesResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfISecurityProperty"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="registerService" type="tns:registerService"/>
+<xsd:complexType name="registerService">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="arg0" type="ns1:IWebService"/>
+<xsd:element minOccurs="0" name="arg1" type="ns0:ISecurityDescriptor"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="registerServiceResponse" type="tns:registerServiceResponse"/>
+<xsd:complexType name="registerServiceResponse">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="getProperties" type="tns:getProperties"/>
+<xsd:complexType name="getProperties">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="arg0" type="ns1:IWebService"/>
+<xsd:element minOccurs="0" name="arg1" nillable="true" type="ns0:SPState"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getPropertiesResponse" type="tns:getPropertiesResponse"/>
+<xsd:complexType name="getPropertiesResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfISecurityProperty"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="persist_cache" type="tns:persist_cache"/>
+<xsd:complexType name="persist_cache">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="persist_cacheResponse" type="tns:persist_cacheResponse"/>
+<xsd:complexType name="persist_cacheResponse">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="print_sp_entries" type="tns:print_sp_entries"/>
+<xsd:complexType name="print_sp_entries">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="print_sp_entriesResponse" type="tns:print_sp_entriesResponse"/>
+<xsd:complexType name="print_sp_entriesResponse">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="emptyCache" type="tns:emptyCache"/>
+<xsd:complexType name="emptyCache">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="emptyCacheResponse" type="tns:emptyCacheResponse"/>
+<xsd:complexType name="emptyCacheResponse">
+<xsd:sequence/>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.ds.spdm.components.wp3.aniketos.eu" xmlns:ns0="http://util.java" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://api.ds.spdm.components.wp3.aniketos.eu">
+<xsd:import namespace="http://util.java"/>
+<xsd:complexType name="IWebService">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="serviceID" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfIWebService">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="IWebService" nillable="true" type="tns:IWebService"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ISPSRepository">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="entriest" nillable="true" type="ns0:ArrayOfEntry"/>
+<xsd:element minOccurs="0" name="propertyEntries" nillable="true" type="ns0:ArrayOfEntry"/>
+<xsd:element minOccurs="0" name="serviceEntries" nillable="true" type="ns0:ArrayOfEntry"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://data.aniketos.eu" xmlns:ns0="http://cert.security.java" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://data.aniketos.eu">
+<xsd:import namespace="http://cert.security.java"/>
+<xsd:complexType name="ArrayOfISecurityProperty">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ISecurityProperty" nillable="true" type="tns:ISecurityProperty"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:simpleType name="SPState">
+<xsd:restriction base="xsd:string">
+<xsd:enumeration value="UnBind"/>
+<xsd:enumeration value="Bind"/>
+<xsd:enumeration value="Verified"/>
+<xsd:enumeration value="Signed"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:complexType name="ISecurityProperty">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="certificate" nillable="true" type="ns0:X509Certificate"/>
+<xsd:element minOccurs="0" name="freshness" type="xsd:dateTime"/>
+<xsd:element minOccurs="0" name="propertyID" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="propertyValue" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="state" nillable="true" type="tns:SPState"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ISecurityDescriptor">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="properties" nillable="true" type="tns:ArrayOfISecurityProperty"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getSecurityPropertyResponse">
+    <wsdl:part element="tns:getSecurityPropertyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchRepositoryResponse">
+    <wsdl:part element="tns:fetchRepositoryResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="unregisterService">
+    <wsdl:part element="tns:unregisterService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="print_repository">
+    <wsdl:part element="tns:print_repository" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getService">
+    <wsdl:part element="tns:getService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lookUpSecurityProperty">
+    <wsdl:part element="tns:lookUpSecurityProperty" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="unregisterServiceResponse">
+    <wsdl:part element="tns:unregisterServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVerifiedProperties">
+    <wsdl:part element="tns:getVerifiedProperties" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProperties">
+    <wsdl:part element="tns:getProperties" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lookUpSecurityPropertyResponse">
+    <wsdl:part element="tns:lookUpSecurityPropertyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceResponse">
+    <wsdl:part element="tns:getServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerService1Response">
+    <wsdl:part element="tns:registerService1Response" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerService">
+    <wsdl:part element="tns:registerService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="print_ws_entries">
+    <wsdl:part element="tns:print_ws_entries" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVerifiedPropertiesResponse">
+    <wsdl:part element="tns:getVerifiedPropertiesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSecurityProperty1">
+    <wsdl:part element="tns:getSecurityProperty1" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="print_ws_entriesResponse">
+    <wsdl:part element="tns:print_ws_entriesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSecurityProperty1Response">
+    <wsdl:part element="tns:getSecurityProperty1Response" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPropertiesResponse">
+    <wsdl:part element="tns:getPropertiesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="persist_cache">
+    <wsdl:part element="tns:persist_cache" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSecurityProperty">
+    <wsdl:part element="tns:getSecurityProperty" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="persist_cacheResponse">
+    <wsdl:part element="tns:persist_cacheResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cache_sizeResponse">
+    <wsdl:part element="tns:cache_sizeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="emptyCache">
+    <wsdl:part element="tns:emptyCache" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeSeucrityProeprtyResponse">
+    <wsdl:part element="tns:removeSeucrityProeprtyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lookupService">
+    <wsdl:part element="tns:lookupService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="print_repositoryResponse">
+    <wsdl:part element="tns:print_repositoryResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeSeucrityProeprty">
+    <wsdl:part element="tns:removeSeucrityProeprty" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerService1">
+    <wsdl:part element="tns:registerService1" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="print_sp_entries">
+    <wsdl:part element="tns:print_sp_entries" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerServiceResponse">
+    <wsdl:part element="tns:registerServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchRepository">
+    <wsdl:part element="tns:fetchRepository" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cache_size">
+    <wsdl:part element="tns:cache_size" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="print_sp_entriesResponse">
+    <wsdl:part element="tns:print_sp_entriesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lookupServiceResponse">
+    <wsdl:part element="tns:lookupServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="emptyCacheResponse">
+    <wsdl:part element="tns:emptyCacheResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ISPDMServicePortType">
+    <wsdl:operation name="removeSeucrityProeprty">
+      <wsdl:input message="tns:removeSeucrityProeprty" name="removeSeucrityProeprty">
+    </wsdl:input>
+      <wsdl:output message="tns:removeSeucrityProeprtyResponse" name="removeSeucrityProeprtyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="print_ws_entries">
+      <wsdl:input message="tns:print_ws_entries" name="print_ws_entries">
+    </wsdl:input>
+      <wsdl:output message="tns:print_ws_entriesResponse" name="print_ws_entriesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchRepository">
+      <wsdl:input message="tns:fetchRepository" name="fetchRepository">
+    </wsdl:input>
+      <wsdl:output message="tns:fetchRepositoryResponse" name="fetchRepositoryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getService">
+      <wsdl:input message="tns:getService" name="getService">
+    </wsdl:input>
+      <wsdl:output message="tns:getServiceResponse" name="getServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerService1">
+      <wsdl:input message="tns:registerService1" name="registerService1">
+    </wsdl:input>
+      <wsdl:output message="tns:registerService1Response" name="registerService1Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="print_repository">
+      <wsdl:input message="tns:print_repository" name="print_repository">
+    </wsdl:input>
+      <wsdl:output message="tns:print_repositoryResponse" name="print_repositoryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookupService">
+      <wsdl:input message="tns:lookupService" name="lookupService">
+    </wsdl:input>
+      <wsdl:output message="tns:lookupServiceResponse" name="lookupServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unregisterService">
+      <wsdl:input message="tns:unregisterService" name="unregisterService">
+    </wsdl:input>
+      <wsdl:output message="tns:unregisterServiceResponse" name="unregisterServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookUpSecurityProperty">
+      <wsdl:input message="tns:lookUpSecurityProperty" name="lookUpSecurityProperty">
+    </wsdl:input>
+      <wsdl:output message="tns:lookUpSecurityPropertyResponse" name="lookUpSecurityPropertyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecurityProperty1">
+      <wsdl:input message="tns:getSecurityProperty1" name="getSecurityProperty1">
+    </wsdl:input>
+      <wsdl:output message="tns:getSecurityProperty1Response" name="getSecurityProperty1Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cache_size">
+      <wsdl:input message="tns:cache_size" name="cache_size">
+    </wsdl:input>
+      <wsdl:output message="tns:cache_sizeResponse" name="cache_sizeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecurityProperty">
+      <wsdl:input message="tns:getSecurityProperty" name="getSecurityProperty">
+    </wsdl:input>
+      <wsdl:output message="tns:getSecurityPropertyResponse" name="getSecurityPropertyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVerifiedProperties">
+      <wsdl:input message="tns:getVerifiedProperties" name="getVerifiedProperties">
+    </wsdl:input>
+      <wsdl:output message="tns:getVerifiedPropertiesResponse" name="getVerifiedPropertiesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerService">
+      <wsdl:input message="tns:registerService" name="registerService">
+    </wsdl:input>
+      <wsdl:output message="tns:registerServiceResponse" name="registerServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProperties">
+      <wsdl:input message="tns:getProperties" name="getProperties">
+    </wsdl:input>
+      <wsdl:output message="tns:getPropertiesResponse" name="getPropertiesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="persist_cache">
+      <wsdl:input message="tns:persist_cache" name="persist_cache">
+    </wsdl:input>
+      <wsdl:output message="tns:persist_cacheResponse" name="persist_cacheResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="print_sp_entries">
+      <wsdl:input message="tns:print_sp_entries" name="print_sp_entries">
+    </wsdl:input>
+      <wsdl:output message="tns:print_sp_entriesResponse" name="print_sp_entriesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="emptyCache">
+      <wsdl:input message="tns:emptyCache" name="emptyCache">
+    </wsdl:input>
+      <wsdl:output message="tns:emptyCacheResponse" name="emptyCacheResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ISPDMServiceSoapBinding" type="tns:ISPDMServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="removeSeucrityProeprty">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeSeucrityProeprty">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeSeucrityProeprtyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="print_ws_entries">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="print_ws_entries">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="print_ws_entriesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchRepository">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="fetchRepository">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="fetchRepositoryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerService1">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="registerService1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerService1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="print_repository">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="print_repository">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="print_repositoryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookupService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="lookupService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="lookupServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookUpSecurityProperty">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="lookUpSecurityProperty">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="lookUpSecurityPropertyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unregisterService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="unregisterService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="unregisterServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecurityProperty1">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSecurityProperty1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSecurityProperty1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cache_size">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="cache_size">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="cache_sizeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecurityProperty">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSecurityProperty">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSecurityPropertyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVerifiedProperties">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getVerifiedProperties">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getVerifiedPropertiesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProperties">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getProperties">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPropertiesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="registerService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="persist_cache">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="persist_cache">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="persist_cacheResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="emptyCache">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="emptyCache">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="emptyCacheResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="print_sp_entries">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="print_sp_entries">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="print_sp_entriesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ISPDMService">
+    <wsdl:port binding="tns:ISPDMServiceSoapBinding" name="ISPDMServicePort">
+      <soap:address location="http://ec2-54-235-118-152.compute-1.amazonaws.com:9091/spdm_service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

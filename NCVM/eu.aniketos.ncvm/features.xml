@@ -1,0 +1,116 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+	<feature name="SSVV" version="1.0.0">
+		<!-- Deploy the entire Service Security Verification and Validation toolchain -->
+		<feature>NCVM</feature>		
+		<feature>CSVM-Dummy</feature>		
+		<feature>Marketplace</feature>		
+		<feature>Trustworthiness</feature>		
+		<feature>CSSTM</feature>		
+		<feature>SPDM</feature>		
+		<feature>SCPM</feature>		
+	</feature>
+
+	<feature name="NCVM" version="1.0.0">
+		<!-- org.eclipse.bpmn2 BPMN MDT dependencies -->
+		<bundle>mvn:org.eclipse.equinox/org.eclipse.equinox.common/3.6.0.v20100503</bundle>
+		<bundle>mvn:org.eclipse.core/org.eclipse.core.jobs/3.5.100</bundle>
+		<bundle>mvn:org.eclipse.equinox/org.eclipse.equinox.registry/3.5.101</bundle>
+		<bundle>mvn:org.eclipse.equinox/org.eclipse.equinox.preferences/3.4.1</bundle>
+		<bundle>mvn:org.eclipse.core/org.eclipse.core.contenttype/3.4.100.v20100505-1235</bundle>
+		<bundle>mvn:org.eclipse.equinox/org.eclipse.equinox.app/1.3.100</bundle>
+		<bundle>mvn:org.eclipse.core/org.eclipse.core.runtime/3.7.0</bundle>
+		<bundle>mvn:org.eclipse.emf/org.eclipse.emf.common/2.9.1-v20130827-0309</bundle>
+		<bundle>mvn:org.eclipse.emf/org.eclipse.emf.ecore/2.9.1-v20130827-0309</bundle>
+		<bundle>mvn:org.eclipse.emf/org.eclipse.emf.ecore.xmi/2.9.1-v20130827-0309</bundle>
+		<bundle>mvn:org.eclipse.xsd/org.eclipse.xsd/2.9.1-v20130902-0605</bundle>
+		<bundle>mvn:org.eclipse.bpmn2/org.eclipse.bpmn2/0.7.0-SNAPSHOT</bundle>
+
+		<!-- NCVM Aniketos dependencies -->
+		<bundle>mvn:eu.aniketos.data/common-datatypes/1.0.0-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.ncvm/userinterface-proxy/0.0.1-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.ncvm/marketplace-proxy/0.0.1-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.ncvm/csvm-proxy/0.0.1-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.ncvm/pvm-proxy/0.0.1-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.ncvm/spdm-proxy/0.0.1-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.ncvm/ncvm-proxy/0.0.1-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.spec/ConSpec_Parser/1.0.0-SNAPSHOT</bundle>
+
+		<!-- NCVM installation -->
+		<bundle>mvn:eu.aniketos.ncvm/ncvm/0.0.1-SNAPSHOT</bundle>
+	</feature>
+
+	<feature name="CSVM-Dummy" version="1.0.0">
+		<!-- CSVM Aniketos dependencies -->
+		<bundle>mvn:eu.aniketos.data/common-datatypes/1.0.0-SNAPSHOT</bundle>
+
+		<!-- CSVM-Dummy installation -->
+		<bundle>mvn:eu.aniketos.csvm/csvm-dummy/0.0.1-SNAPSHOT</bundle>
+	</feature>
+
+	<feature name="SPDM" version="1.0.0.RELEASE">
+		<bundle>mvn:org.apache.felix/org.apache.felix.scr/1.6.0</bundle>
+
+		<bundle>mvn:org.apache.felix/org.osgi.core/1.4.0</bundle>
+		<bundle>mvn:org.apache.felix/javax.servlet/1.0.0</bundle>
+		<bundle>mvn:org.apache.felix/org.osgi.compendium/1.4.0</bundle>
+		<bundle>mvn:org.apache.felix/javax.servlet/1.0.0</bundle>
+		<bundle>mvn:org.apache.felix/org.osgi.compendium/1.4.0</bundle>
+
+		<bundle>mvn:org.apache.derby/derby/10.8.1.2</bundle>
+		<bundle>mvn:commons-pool/commons-pool/1.5.5</bundle>
+		<bundle>mvn:org.eclipse.persistence/javax.persistence/2.0.0</bundle>
+		<bundle>mvn:org.apache.commons/com.springsource.org.apache.commons.collections/3.2.1</bundle>
+		<bundle>mvn:commons-lang/commons-lang/2.6</bundle>
+		<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-collections/3.2.1_3</bundle>
+		<bundle>mvn:commons-collections/commons-collections/3.2.1</bundle>
+		<bundle>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+		<bundle>mvn:commons-dbcp/commons-dbcp/1.4</bundle>
+		<bundle>wrap:mvn:net.sourceforge.serp/serp/1.13.1</bundle>
+		<bundle>mvn:org.apache.openjpa/openjpa/2.1.1</bundle>
+		<bundle>mvn:org.apache.aries/org.apache.aries.util/0.4</bundle>
+
+		<bundle>mvn:eu.aniketos.spdm/ds-datatype-bundle/1.0-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.spdm/ds-api-bundle/1.0-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.spdm/ds-impl-bundle/1.0-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.spdm/ds-spdm-bundle/1.0-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.spdm/ds-console-bundle/1.0-SNAPSHOT/</bundle>
+		<bundle>mvn:eu.aniketos.spdm/ds-test-bundle/1.0-SNAPSHOT/</bundle>  
+	</feature>
+
+	<feature name="Marketplace" version="1.0.0">
+		<!-- Marketplace Aniketos dependencies -->
+		<bundle>mvn:eu.aniketos.data/common-datatypes/1.0.0-SNAPSHOT</bundle>
+
+		<!-- Marketplace installation -->
+		<bundle>mvn:eu.aniketos.marketplace/marketplace/1.0.0-SNAPSHOT</bundle>
+	</feature>
+
+	<feature name="Trustworthiness" version="1.0.0">
+		<!-- Trustworthiness Aniketos dependencies -->
+		<bundle>mvn:eu.aniketos.data/common-datatypes/1.0.0-SNAPSHOT</bundle>
+
+		<!-- Trustworthiness installation -->
+		<bundle>mvn:eu.aniketos.trustworthiness.ext.messaging/trustworthiness-ext-api/1.0-SNAPSHOT</bundle>
+	</feature>
+
+	<feature name="CSSTM" version="1.0.0">
+		<!-- CSSTM Aniketos dependencies -->
+		<bundle>mvn:eu.aniketos.data/common-datatypes/1.0.0-SNAPSHOT</bundle>
+
+		<!-- CSSTM installation -->
+		<bundle>mvn:eu.aniketos.csstm/csstm-interface/0.1-SNAPSHOT</bundle>
+	</feature>
+
+	<feature name="SCPM" version="1.0.0">
+		<!-- SCPM Aniketos dependencies -->
+		<bundle>mvn:eu.aniketos.data/common-datatypes/1.0.0-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.ncvm/userinterface-proxy/0.0.1-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.ncvm/ncvm-proxy/0.0.1-SNAPSHOT</bundle>
+
+		<!-- SCPM installation -->
+		<bundle>mvn:eu.aniketos.components/Secure-Composition-Planner-Module/1.0.0-SNAPSHOT</bundle>
+		<bundle>mvn:eu.aniketos.components/Secure-Composition-Planner-Impl-Module/1.0.0-SNAPSHOT</bundle>
+	</feature>
+
+</features>
+

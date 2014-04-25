@@ -1,0 +1,22 @@
+# NCVM Configuration File
+
+# Address of the Web Service (without ?wsdl at the end)
+#Address = http://localhost:9093/ncvm
+Address = http://ec2-54-235-118-152.compute-1.amazonaws.com:9093/ncvm
+
+# Address of the other Aniketos services (without the ?wsdl at the end)
+FeedbackAddress = http://localhost:9094/ncvmfeedback
+FeedbackTrack = false;
+
+CSVMAddress = http://ec2-54-235-118-152.compute-1.amazonaws.com:9095/csvm
+CSVMTrack = false;
+
+PVMAddress = http://ec2-54-235-118-152.compute-1.amazonaws.com:9090/pvm
+PVMTrack = false;
+
+SPDMAddress = http://ec2-54-235-118-152.compute-1.amazonaws.com:9091/spdm_service
+SPDMTrack = false;
+
+MarketplaceAddress = http://hestia.atc.gr/marketplace
+MarketplaceTrack = false;
+

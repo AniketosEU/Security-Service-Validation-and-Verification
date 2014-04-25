@@ -1,0 +1,583 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://marketplace.aniketos.eu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="IMarketplace" targetNamespace="http://marketplace.aniketos.eu/">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://marketplace.aniketos.eu" xmlns:ns1="http://data.aniketos.eu" xmlns:ns0="http://marketplace.aniketos.eu/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://marketplace.aniketos.eu">
+  <xsd:import namespace="http://marketplace.aniketos.eu/"/>
+  <xsd:import namespace="http://data.aniketos.eu"/>
+  <xsd:complexType name="ServiceDescriptor">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="binding" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="description" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="id" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="name" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="providerName" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="testable" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SecurityDescriptor">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="conspec" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Tag">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="occurences" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="tag" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ArrayOfServiceDescriptor">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="ServiceDescriptor" nillable="true" type="tns:ServiceDescriptor"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MarketplaceSearchParams">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="description" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="name" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="owner" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="tags" nillable="true" type="ns0:ArrayOfString"/>
+      <xsd:element minOccurs="0" name="url" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MarketplaceAnnouncement">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="compositionPlan" nillable="true" type="ns1:ICompositionPlan"/>
+      <xsd:element minOccurs="0" name="registry" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="securityDescriptor" nillable="true" type="tns:SecurityDescriptor"/>
+      <xsd:element minOccurs="0" name="sender" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="serviceDescriptor" nillable="true" type="tns:ServiceDescriptor"/>
+      <xsd:element minOccurs="0" name="tags" nillable="true" type="ns0:ArrayOfString"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ArrayOfTag">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="Tag" nillable="true" type="tns:Tag"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://marketplace.aniketos.eu/" xmlns:ns0="http://marketplace.aniketos.eu" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://marketplace.aniketos.eu/">
+  <xsd:import namespace="http://marketplace.aniketos.eu"/>
+  <xsd:complexType name="ArrayOfString">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="notProvide" type="tns:notProvide"/>
+  <xsd:complexType name="notProvide">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="notProvideResponse" type="tns:notProvideResponse"/>
+  <xsd:complexType name="notProvideResponse">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="getSecurityDescriptor" type="tns:getSecurityDescriptor"/>
+  <xsd:complexType name="getSecurityDescriptor">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getSecurityDescriptorResponse" type="tns:getSecurityDescriptorResponse"/>
+  <xsd:complexType name="getSecurityDescriptorResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:SecurityDescriptor"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="provide" type="tns:provide"/>
+  <xsd:complexType name="provide">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="provideResponse" type="tns:provideResponse"/>
+  <xsd:complexType name="provideResponse">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="announceService" type="tns:announceService"/>
+  <xsd:complexType name="announceService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg1" type="ns0:MarketplaceAnnouncement"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="announceServiceResponse" type="tns:announceServiceResponse"/>
+  <xsd:complexType name="announceServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getBpmnDiagram" type="tns:getBpmnDiagram"/>
+  <xsd:complexType name="getBpmnDiagram">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getBpmnDiagramResponse" type="tns:getBpmnDiagramResponse"/>
+  <xsd:complexType name="getBpmnDiagramResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="registerSource" type="tns:registerSource"/>
+  <xsd:complexType name="registerSource">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="registerSourceResponse" type="tns:registerSourceResponse"/>
+  <xsd:complexType name="registerSourceResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getSource" type="tns:getSource"/>
+  <xsd:complexType name="getSource">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getSourceResponse" type="tns:getSourceResponse"/>
+  <xsd:complexType name="getSourceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getAuthToken" type="tns:getAuthToken"/>
+  <xsd:complexType name="getAuthToken">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getAuthTokenResponse" type="tns:getAuthTokenResponse"/>
+  <xsd:complexType name="getAuthTokenResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="deleteService" type="tns:deleteService"/>
+  <xsd:complexType name="deleteService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="deleteServiceResponse" type="tns:deleteServiceResponse"/>
+  <xsd:complexType name="deleteServiceResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="updateSecurityDescription" type="tns:updateSecurityDescription"/>
+  <xsd:complexType name="updateSecurityDescription">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg2" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="updateSecurityDescriptionResponse" type="tns:updateSecurityDescriptionResponse"/>
+  <xsd:complexType name="updateSecurityDescriptionResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getTags" type="tns:getTags"/>
+  <xsd:complexType name="getTags">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getTagsResponse" type="tns:getTagsResponse"/>
+  <xsd:complexType name="getTagsResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:ArrayOfTag"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="discoverService" type="tns:discoverService"/>
+  <xsd:complexType name="discoverService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg1" type="ns0:MarketplaceSearchParams"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="discoverServiceResponse" type="tns:discoverServiceResponse"/>
+  <xsd:complexType name="discoverServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:ArrayOfServiceDescriptor"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="updateBpmnDiagram" type="tns:updateBpmnDiagram"/>
+  <xsd:complexType name="updateBpmnDiagram">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="arg2" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="updateBpmnDiagramResponse" type="tns:updateBpmnDiagramResponse"/>
+  <xsd:complexType name="updateBpmnDiagramResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="isTestable" type="tns:isTestable"/>
+  <xsd:complexType name="isTestable">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="isTestableResponse" type="tns:isTestableResponse"/>
+  <xsd:complexType name="isTestableResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://data.aniketos.eu" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://data.aniketos.eu">
+  <xsd:complexType name="ICompositionPlan">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="BPMNXML" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="activitiFile" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="compositionPlanID" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getSecurityDescriptorResponse">
+    <wsdl:part element="tns:getSecurityDescriptorResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="announceServiceResponse">
+    <wsdl:part element="tns:announceServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateBpmnDiagramResponse">
+    <wsdl:part element="tns:updateBpmnDiagramResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBpmnDiagram">
+    <wsdl:part element="tns:getBpmnDiagram" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverServiceResponse">
+    <wsdl:part element="tns:discoverServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="provide">
+    <wsdl:part element="tns:provide" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBpmnDiagramResponse">
+    <wsdl:part element="tns:getBpmnDiagramResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSource">
+    <wsdl:part element="tns:getSource" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTags">
+    <wsdl:part element="tns:getTags" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="notProvide">
+    <wsdl:part element="tns:notProvide" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthTokenResponse">
+    <wsdl:part element="tns:getAuthTokenResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSecurityDescriptor">
+    <wsdl:part element="tns:getSecurityDescriptor" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthToken">
+    <wsdl:part element="tns:getAuthToken" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="provideResponse">
+    <wsdl:part element="tns:provideResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="notProvideResponse">
+    <wsdl:part element="tns:notProvideResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isTestableResponse">
+    <wsdl:part element="tns:isTestableResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverService">
+    <wsdl:part element="tns:discoverService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteService">
+    <wsdl:part element="tns:deleteService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isTestable">
+    <wsdl:part element="tns:isTestable" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTagsResponse">
+    <wsdl:part element="tns:getTagsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateSecurityDescriptionResponse">
+    <wsdl:part element="tns:updateSecurityDescriptionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="announceService">
+    <wsdl:part element="tns:announceService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerSource">
+    <wsdl:part element="tns:registerSource" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSourceResponse">
+    <wsdl:part element="tns:getSourceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateSecurityDescription">
+    <wsdl:part element="tns:updateSecurityDescription" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerSourceResponse">
+    <wsdl:part element="tns:registerSourceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateBpmnDiagram">
+    <wsdl:part element="tns:updateBpmnDiagram" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteServiceResponse">
+    <wsdl:part element="tns:deleteServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IMarketplacePortType">
+    <wsdl:operation name="notProvide">
+      <wsdl:input message="tns:notProvide" name="notProvide">
+    </wsdl:input>
+      <wsdl:output message="tns:notProvideResponse" name="notProvideResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecurityDescriptor">
+      <wsdl:input message="tns:getSecurityDescriptor" name="getSecurityDescriptor">
+    </wsdl:input>
+      <wsdl:output message="tns:getSecurityDescriptorResponse" name="getSecurityDescriptorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="provide">
+      <wsdl:input message="tns:provide" name="provide">
+    </wsdl:input>
+      <wsdl:output message="tns:provideResponse" name="provideResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="announceService">
+      <wsdl:input message="tns:announceService" name="announceService">
+    </wsdl:input>
+      <wsdl:output message="tns:announceServiceResponse" name="announceServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBpmnDiagram">
+      <wsdl:input message="tns:getBpmnDiagram" name="getBpmnDiagram">
+    </wsdl:input>
+      <wsdl:output message="tns:getBpmnDiagramResponse" name="getBpmnDiagramResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerSource">
+      <wsdl:input message="tns:registerSource" name="registerSource">
+    </wsdl:input>
+      <wsdl:output message="tns:registerSourceResponse" name="registerSourceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSource">
+      <wsdl:input message="tns:getSource" name="getSource">
+    </wsdl:input>
+      <wsdl:output message="tns:getSourceResponse" name="getSourceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthToken">
+      <wsdl:input message="tns:getAuthToken" name="getAuthToken">
+    </wsdl:input>
+      <wsdl:output message="tns:getAuthTokenResponse" name="getAuthTokenResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteService">
+      <wsdl:input message="tns:deleteService" name="deleteService">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteServiceResponse" name="deleteServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSecurityDescription">
+      <wsdl:input message="tns:updateSecurityDescription" name="updateSecurityDescription">
+    </wsdl:input>
+      <wsdl:output message="tns:updateSecurityDescriptionResponse" name="updateSecurityDescriptionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTags">
+      <wsdl:input message="tns:getTags" name="getTags">
+    </wsdl:input>
+      <wsdl:output message="tns:getTagsResponse" name="getTagsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoverService">
+      <wsdl:input message="tns:discoverService" name="discoverService">
+    </wsdl:input>
+      <wsdl:output message="tns:discoverServiceResponse" name="discoverServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBpmnDiagram">
+      <wsdl:input message="tns:updateBpmnDiagram" name="updateBpmnDiagram">
+    </wsdl:input>
+      <wsdl:output message="tns:updateBpmnDiagramResponse" name="updateBpmnDiagramResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isTestable">
+      <wsdl:input message="tns:isTestable" name="isTestable">
+    </wsdl:input>
+      <wsdl:output message="tns:isTestableResponse" name="isTestableResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IMarketplaceSoapBinding" type="tns:IMarketplacePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="notProvide">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="notProvide">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="notProvideResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecurityDescriptor">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSecurityDescriptor">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSecurityDescriptorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="provide">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="provide">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="provideResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="announceService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="announceService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="announceServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBpmnDiagram">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getBpmnDiagram">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBpmnDiagramResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthToken">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAuthToken">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAuthTokenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSource">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSource">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSourceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerSource">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="registerSource">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerSourceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTags">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTags">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTagsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSecurityDescription">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateSecurityDescription">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateSecurityDescriptionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoverService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="discoverService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="discoverServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isTestable">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isTestable">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isTestableResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBpmnDiagram">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateBpmnDiagram">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateBpmnDiagramResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IMarketplace">
+    <wsdl:port binding="tns:IMarketplaceSoapBinding" name="IMarketplacePort">
+      <soap:address location="http://hestia.atc.gr/marketplace/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

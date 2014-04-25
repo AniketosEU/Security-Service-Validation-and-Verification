@@ -1,0 +1,11 @@
+<specificationShort id="SoD_Goal_short" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd_aniketosShort.xsd">
+  <identifier>SoD_Goal</identifier> 
+<parameter>
+  <type>string</type> 
+  <identifier>Get_Loan</identifier> 
+  </parameter>
+<parameter>
+  <type>string</type> 
+  <identifier>Approve_Loan</identifier> 
+  </parameter>
+</specificationShort> 

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NCVM-Client
+Bundle-SymbolicName: eu.aniketos.ncvm.client
+Bundle-Version: 1.0.0.qualifier
+Import-Package: eu.aniketos.ncvm
+Export-Package: eu.aniketos.ncvm.client

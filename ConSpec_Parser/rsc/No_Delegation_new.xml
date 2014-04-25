@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<specification id="No_Delegation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd_aniketos.xsd">
+<definition><identifier>No_Delegation</identifier><parameter><type>string</type><identifier>allowedRole</identifier></parameter><parameter><type>string</type><identifier>guardedTask</identifier></parameter></definition>
+<maxint>32000</maxint>
+<maxlen>1000</maxlen>
+<scope>session</scope>
+<securitystate /><rule><before><identifier>activity.start</identifier><parameter><type>string</type><identifier>id</identifier></parameter><parameter><type>string</type><identifier>name</identifier></parameter><parameter><type>string</type><identifier>type</identifier></parameter><parameter><type>int</type><identifier>time</identifier></parameter><parameter><type>int</type><identifier>date</identifier></parameter><parameter><type>string</type><identifier>exec</identifier></parameter></before><perform><reaction><guard><and><s_equal><s_identifier>guardedTask</s_identifier><s_identifier>name</s_identifier></s_equal><s_equal><s_identifier>allowedRole</s_identifier><invocation><s_identifier>GetRole</s_identifier><s_identifier>result</s_identifier><argument><s_identifier>exec</s_identifier></argument></invocation></s_equal></and></guard><update /></reaction><reaction><guard><not><s_equal><s_identifier>guardedTask</s_identifier><s_identifier>name</s_identifier></s_equal></not></guard><update /></reaction></perform></rule></specification>

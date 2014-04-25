@@ -1,0 +1,30 @@
+﻿<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:simpleType name="typeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="int" />
+			<xs:enumeration value="bool" />
+			<xs:enumeration value="string" />
+			<xs:enumeration value="void"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+<xs:complexType name="parameterType">
+	<xs:sequence>
+		<xs:element name="type" type="typeType"/>
+		<xs:element name="identifier" type="xs:string"/>
+	</xs:sequence>
+</xs:complexType>
+
+<xs:element name="specificationShort">
+  <xs:complexType>
+    <xs:sequence>
+		<xs:element name="identifier" type="xs:string"/>
+		<xs:element name="parameter" type="parameterType" minOccurs="0" maxOccurs="unbounded"/>              </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/> 
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>

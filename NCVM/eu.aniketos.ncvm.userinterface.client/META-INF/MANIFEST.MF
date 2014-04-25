@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NCVM-Feedback-Client
+Bundle-SymbolicName: eu.aniketos.ncvm.userinterface.client
+Bundle-Version: 1.0.0.qualifier
+Export-Package: eu.aniketos.ncvm.userinterface.client

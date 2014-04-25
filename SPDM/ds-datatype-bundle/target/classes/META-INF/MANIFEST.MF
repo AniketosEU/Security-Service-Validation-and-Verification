@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Export-Package: eu.aniketos.data;version="1.0.0.SNAPSHOT"
+Built-By: flypig
+Tool: Bnd-0.0.255
+Bundle-Name: eu.aniketos.spdm.ds-datatype-bundle [eu.aniketos.data]
+Created-By: Apache Maven Bundle Plugin
+Bundle-Version: 1.0.0.SNAPSHOT
+Build-Jdk: 1.6.0_30
+Bnd-LastModified: 1395659246660
+Bundle-ManifestVersion: 2
+Bundle-Description: Generated using Pax-Construct
+Import-Package: eu.aniketos.data;version="1.0.0.SNAPSHOT"
+Bundle-SymbolicName: eu.aniketos.spdm.ds-datatype-bundle
+

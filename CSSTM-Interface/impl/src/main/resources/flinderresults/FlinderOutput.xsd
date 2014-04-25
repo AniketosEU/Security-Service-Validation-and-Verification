@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.flinder.hu"
+	elementFormDefault="unqualified">
+	<xsd:element name="results">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element name="report">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="failure" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:attribute name="port" type="xsd:string" />
+									<xsd:attribute name="operation" type="xsd:string" />
+									<xsd:attribute name="node" type="xsd:string" />
+									<xsd:attribute name="manipulator" type="xsd:string" />
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="total" type="xsd:string" />
+						<xsd:attribute name="pass" type="xsd:string" />
+						<xsd:attribute name="fail" type="xsd:string" />
+						<xsd:attribute name="inconclusive" type="xsd:string" />
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="error" type="xsd:string" />
+				<xsd:element name="status" type="xsd:string" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

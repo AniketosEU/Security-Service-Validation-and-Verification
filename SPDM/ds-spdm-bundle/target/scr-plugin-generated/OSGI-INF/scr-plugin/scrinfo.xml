@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component enabled="true" name="sp-lifecyclemanager-service" activate="activateLifeCycleManager" deactivate="deactivateLifeCycleManager">
+        <implementation class="eu.aniketos.spdm.LifeCycleManager"/>
+        <service servicefactory="false">
+            <provide interface="eu.aniketos.spdm.ds.api.ISPManager"/>
+        </service>
+        <property name="service.description" type="String" value="Security Property Life Cycle Manager Service" private="false"/>
+        <property name="service.vendor" type="String" value="Aniketos SPDM" private="false"/>
+        <property name="service.exported.interfaces" type="String" value="*" private="false"/>
+        <property name="service.exported.configs" type="String" value="org.apache.cxf.ws" private="false"/>
+        <property name="org.apache.cxf.ws.address" type="String" value="http://ec2-54-235-118-152.compute-1.amazonaws.com:9091/sp_life_cycle_manager" private="false"/>
+        <property name="service.pid" value="sp-lifecyclemanager-service" private="false"/>
+    </scr:component>
+    <scr:component enabled="true" name="persistence-manager-service" activate="activatePersistenceManager" deactivate="deactivatePersistenceManager">
+        <implementation class="eu.aniketos.spdm.PersistenceManager"/>
+        <service servicefactory="false">
+            <provide interface="eu.aniketos.spdm.ds.api.IPersistenceManager"/>
+        </service>
+        <property name="service.description" type="String" value="Persistence Manager Service" private="false"/>
+        <property name="service.vendor" type="String" value="Aniketos SPDM" private="false"/>
+        <property name="service.exported.interfaces" type="String" value="*" private="false"/>
+        <property name="service.exported.configs" type="String" value="org.apache.cxf.ws" private="false"/>
+        <property name="org.apache.cxf.ws.address" type="String" value="http://ec2-54-235-118-152.compute-1.amazonaws.com:9091/persistence_manager" private="false"/>
+        <property name="service.pid" value="persistence-manager-service" private="false"/>
+    </scr:component>
+    <scr:component enabled="true" name="SPDM-service" activate="activateSPDMService" deactivate="deactivateSPDMService">
+        <implementation class="eu.aniketos.spdm.SPDMService"/>
+        <service servicefactory="false">
+            <provide interface="eu.aniketos.spdm.ds.api.ISPDMService"/>
+        </service>
+        <property name="service.description" type="String" value="SPDM Service" private="false"/>
+        <property name="service.vendor" type="String" value="Aniketos SPDM" private="false"/>
+        <property name="service.exported.interfaces" type="String" value="*" private="false"/>
+        <property name="service.exported.configs" type="String" value="org.apache.cxf.ws" private="false"/>
+        <property name="org.apache.cxf.ws.address" type="String" value="http://ec2-54-235-118-152.compute-1.amazonaws.com:9091/spdm_service" private="false"/>
+        <property name="service.pid" value="SPDM-service" private="false"/>
+        <reference name="security_desciptor" interface="eu.aniketos.data.ISecurityDescriptor" cardinality="0..n" policy="dynamic" bind="bindSecurityDescriptor" unbind="unbindSecurityDescriptor" checked="true" strategy="event"/>
+        <reference name="security_property" interface="eu.aniketos.data.ISecurityProperty" cardinality="0..n" policy="dynamic" bind="bindSecurityProperty" unbind="unbindSecurityProperty" checked="true" strategy="event"/>
+        <reference name="sps_repository" interface="eu.aniketos.spdm.ds.api.ISPSRepository" cardinality="0..n" policy="dynamic" bind="bindSPSRepository" unbind="unbindSPSRepository" checked="true" strategy="event"/>
+        <reference name="web_service" interface="eu.aniketos.spdm.ds.api.IWebService" cardinality="0..n" policy="dynamic" bind="bindWebService" unbind="unbindWebService" checked="true" strategy="event"/>
+        <reference name="persistence_manager" interface="eu.aniketos.spdm.ds.api.IPersistenceManager" cardinality="0..n" policy="dynamic" bind="bindPersistenceManager" unbind="unbindPersistenceManager" checked="true" strategy="event"/>
+    </scr:component>
+</components>

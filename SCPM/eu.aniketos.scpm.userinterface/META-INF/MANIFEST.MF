@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SCPM Client
+Bundle-SymbolicName: eu.aniketos.scpm.userinterface;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eu.aniketos.scpm.userinterface.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.6.1",
+ org.eclipse.ui.ide;bundle-version="3.6.2"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: eu.aniketos.data,
+ eu.aniketos.data.impl
+Bundle-ClassPath: lib/ConSpeX.jar,
+ lib/jdom-1.0.jar,
+ lib/commons-codec-1.6.jar,
+ .,
+ lib/eu.aniketos.scpm.client.jar,
+ lib/log4j-1.2.16.jar,
+ lib/Secure-Composition-Planner-Module-1.0.0-SNAPSHOT.jar
+Export-Package: eu.aniketos.scpm.userinterface,
+ eu.aniketos.scpm.userinterface.views

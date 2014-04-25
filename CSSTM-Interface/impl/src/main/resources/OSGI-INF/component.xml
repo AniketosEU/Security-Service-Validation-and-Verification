@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="eu.aniketos.csstm.impl">
+   <implementation class="eu.aniketos.csstm.impl.CSSTMImpl"/>
+   <service>
+      <provide interface="eu.aniketos.csstm.ICSSTM"/>
+   </service>
+   <property name="service.exported.interfaces" type="String" value="*"/>
+   <property name="service.exported.configs" type="String" value="org.apache.cxf.ws"/>
+   <property name="org.apache.cxf.ws.address" type="String" value="http://localhost:9042/csstm"/>
+   <reference bind="setIThreatEvent" cardinality="1..1" interface="eu.aniketos.servicethreatmonitoring.IThreatEvent" name="IThreatEvent" policy="static" unbind="unsetIThreatEvent"/>   
+   <reference bind="setINotification" cardinality="1..1" interface="eu.aniketos.notification.IAlert" name="IAlert" policy="static" unbind="unsetINotification"/>   
+   <reference bind="setServiceCompositionFrameworkInterface" cardinality="1..1" interface="eu.aniketos.scf.ServiceCompositionFrameworkInterface" name="ServiceCompositionFrameworkInterface" policy="static" unbind="unsetServiceCompositionFrameworkInterface"/>   
+</scr:component>

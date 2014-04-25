@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PVMProxy
+Bundle-SymbolicName: eu.aniketos.ncvm.pvm.proxy
+Bundle-Version: 1.0.0.qualifier
+Bundle-ActivationPolicy: lazy
+DynamicImport-Package: *
+Bundle-Activator: eu.aniketos.ncvm.pvm.proxy.Activator
+Import-Package: eu.aniketos.data,
+ eu.aniketos.ncvm.userinterface.proxy,
+ javax.xml.namespace,
+ javax.xml.ws,
+ org.osgi.framework;version="1.7.0"
+Export-Package: eu.aniketos.components.verification.propertyverification,
+ eu.aniketos.ncvm.pvm.proxy
+Bundle-ClassPath: lib/pvm-client-0.0.1-SNAPSHOT.jar,
+ .

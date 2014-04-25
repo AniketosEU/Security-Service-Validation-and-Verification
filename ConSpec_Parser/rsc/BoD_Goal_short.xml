@@ -1,0 +1,11 @@
+<specificationShort id="BoD_Goal_short" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd_aniketosShort.xsd">
+  <identifier>BoD_Goal</identifier> 
+<parameter>
+  <type>string</type> 
+  <identifier>Book_rooms</identifier> 
+  </parameter>
+<parameter>
+  <type>string</type> 
+  <identifier>Teach_lessons</identifier> 
+  </parameter>
+</specificationShort> 

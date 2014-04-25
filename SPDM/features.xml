@@ -1,0 +1,46 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+<!--
+Copyright (c) 2013, Aneel Rahim, Bernard Butler and Arif Fareed (Waterford Institute of Technology, Ireland), Project: FP7-ICT-257930 Aniketos
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+ -  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ -  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ -  Neither the name of WATERFORD INSTITUTE OF TECHNOLOGY nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+    <feature name="SPDM" version="1.0.0.RELEASE">
+        
+<bundle>mvn:org.apache.felix/org.apache.felix.scr/1.6.0</bundle>
+
+<bundle>mvn:org.apache.felix/org.osgi.core/1.4.0</bundle>
+<bundle>mvn:org.apache.felix/javax.servlet/1.0.0</bundle>
+<bundle>mvn:org.apache.felix/org.osgi.compendium/1.4.0</bundle>
+<bundle>mvn:org.apache.felix/javax.servlet/1.0.0</bundle>
+<bundle>mvn:org.apache.felix/org.osgi.compendium/1.4.0</bundle>
+
+<bundle>mvn:org.apache.derby/derby/10.8.1.2</bundle>
+<bundle>mvn:commons-pool/commons-pool/1.5.5</bundle>
+<bundle>mvn:org.eclipse.persistence/javax.persistence/2.0.0</bundle>
+<bundle>mvn:org.apache.commons/com.springsource.org.apache.commons.collections/3.2.1</bundle>
+<bundle>mvn:commons-lang/commons-lang/2.6</bundle>
+<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-collections/3.2.1_3</bundle>
+<bundle>mvn:commons-collections/commons-collections/3.2.1</bundle>
+<bundle>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+<bundle>mvn:commons-dbcp/commons-dbcp/1.4</bundle>
+<bundle>wrap:mvn:net.sourceforge.serp/serp/1.13.1</bundle>
+<bundle>mvn:org.apache.openjpa/openjpa/2.1.1</bundle>
+<bundle>mvn:org.apache.aries/org.apache.aries.util/0.4</bundle>
+
+
+
+<bundle>mvn:eu.aniketos.spdm/ds-datatype-bundle/1.0-SNAPSHOT</bundle>
+<bundle>mvn:eu.aniketos.spdm/ds-api-bundle/1.0-SNAPSHOT</bundle>
+<bundle>mvn:eu.aniketos.spdm/ds-impl-bundle/1.0-SNAPSHOT</bundle>
+<bundle>mvn:eu.aniketos.spdm/ds-spdm-bundle/1.0-SNAPSHOT</bundle>
+<bundle>mvn:eu.aniketos.spdm/ds-console-bundle/1.0-SNAPSHOT/</bundle>
+<bundle>mvn:eu.aniketos.spdm/ds-test-bundle/1.0-SNAPSHOT/</bundle>  
+  </feature>
+</features>

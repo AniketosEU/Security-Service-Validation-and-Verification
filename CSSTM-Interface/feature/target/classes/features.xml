@@ -1,0 +1,6 @@
+<features>
+  <feature name="csstm" version="1.0">    
+    <bundle>mvn:eu.aniketos.csstm/csstm-interface/0.1-SNAPSHOT</bundle>
+    <bundle>mvn:eu.aniketos.csstm/csstm-impl/1.0-SNAPSHOT</bundle>
+  </feature>
+</features>

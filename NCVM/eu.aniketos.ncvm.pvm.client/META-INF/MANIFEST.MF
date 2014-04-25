@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PVM-Client
+Bundle-SymbolicName: eu.aniketos.ncvm.pvm.client
+Bundle-Version: 1.0.0.qualifier

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="compositionPlan2" name="compositionPlan2">
+    <documentation>Place documentation for the 'twoservices' process here.</documentation>
+    <startEvent id="startevent1" name="Start" />
+    <serviceTask activiti:class="org.aniketos.runtime.AniketosClientDelegation" id="servicetask2" name="Service Task">
+      <extensionElements>
+        <activiti:field name="type">
+          <activiti:string>map</activiti:string>
+        </activiti:field>
+        <activiti:field name="inputType">
+          <activiti:string>longitude (type: string), latitude (type: string)</activiti:string>
+        </activiti:field>
+        <activiti:field name="outputType">
+          <activiti:string>result (type: string)</activiti:string>
+        </activiti:field>
+        <activiti:field name="operation">
+          <activiti:string>getMap</activiti:string>
+        </activiti:field>
+        <activiti:field name="id">
+          <activiti:string>http://83.235.133.36/AniketosWS/MapsServiceSoap12HttpPort?wsdl</activiti:string>
+        </activiti:field>
+        <activiti:field name="location">
+          <activiti:string>http://83.235.133.36/AniketosWS/MapsServiceSoap12HttpPort?wsdl</activiti:string>
+        </activiti:field>
+        <activiti:field name="serviceProvider">
+          <activiti:string>daem</activiti:string>
+        </activiti:field>
+      </extensionElements>
+    </serviceTask>
+    <endEvent id="endevent1" name="End" />
+    <sequenceFlow id="flow3" name="" sourceRef="servicetask2" targetRef="endevent1" />
+    <serviceTask activiti:class="org.aniketos.runtime.AniketosClientDelegation" id="servicetask3" name="Service Task">
+      <extensionElements>
+        <activiti:field name="type">
+          <activiti:string>geocode</activiti:string>
+        </activiti:field>
+        <activiti:field name="inputType">
+          <activiti:string>arg0 (type: string)</activiti:string>
+        </activiti:field>
+        <activiti:field name="outputType">
+          <activiti:string>return (type: string)</activiti:string>
+        </activiti:field>
+        <activiti:field name="operation">
+          <activiti:string>getCoordinates</activiti:string>
+        </activiti:field>
+        <activiti:field name="id">
+          <activiti:string>http://83.235.133.36/AniketosWS/LotInfoServiceSoap12HttpPort?wsdl</activiti:string>
+        </activiti:field>
+        <activiti:field name="location">
+          <activiti:string>http://83.235.133.36/AniketosWS/LotInfoServiceSoap12HttpPort?wsdl</activiti:string>
+        </activiti:field>
+        <activiti:field name="serviceProvider">
+          <activiti:string>google</activiti:string>
+        </activiti:field>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="flow4" name="" sourceRef="startevent1" targetRef="servicetask3" />
+    <sequenceFlow id="flow5" name="" sourceRef="servicetask3" targetRef="servicetask2" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_Twoservices">
+    <bpmndi:BPMNPlane bpmnElement="compositionPlan2" id="BPMNPlane_Twoservices">
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35" width="35" x="150" y="140" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="servicetask2" id="BPMNShape_servicetask2">
+        <omgdc:Bounds height="55" width="105" x="390" y="130" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35" width="35" x="550" y="140" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="servicetask3" id="BPMNShape_servicetask3">
+        <omgdc:Bounds height="55" width="105" x="230" y="130" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="495" y="157" />
+        <omgdi:waypoint x="550" y="157" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="185" y="157" />
+        <omgdi:waypoint x="230" y="157" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="335" y="157" />
+        <omgdi:waypoint x="390" y="157" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
+

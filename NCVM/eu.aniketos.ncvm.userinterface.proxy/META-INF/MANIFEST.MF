@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NCVMFeedbackProxy
+Bundle-SymbolicName: eu.aniketos.ncvm.userinterface.proxy
+Bundle-Version: 1.0.0.qualifier
+DynamicImport-Package: *
+Import-Package: eu.aniketos.data,
+ javax.xml.namespace,
+ javax.xml.ws,
+ org.osgi.framework
+Export-Package: eu.aniketos.ncvm.userinterface.proxy
+Bundle-ClassPath: lib/userinterface-client-0.0.1-SNAPSHOT.jar,
+ .
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: eu.aniketos.ncvm.userinterface.proxy.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

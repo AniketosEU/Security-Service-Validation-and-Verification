@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Export-Package: eu.aniketos.spdm.ds.test;uses:="eu.anik
+ etos.spdm.ds.api,org.osgi.service.component";version="
+ 1.0.0.SNAPSHOT"
+Service-Component: OSGI-INF/serviceComponents.xml
+Bundle-ClassPath: .,target/pax-eclipse
+Built-By: afareed
+Tool: Bnd-0.0.255
+Bundle-Name: eu.aniketos.spdm.ds-test-bundle [eu.aniket
+ os.spdm.ds.test]
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.6.0_31
+Bundle-Version: 1.0.0.SNAPSHOT
+Bnd-LastModified: 1335956204446
+Bundle-ManifestVersion: 2
+Bundle-Description: Generated using Pax-Construct
+Import-Package: eu.aniketos.spdm.ds.api;version="1.0.0.
+ SNAPSHOT",eu.aniketos.spdm.ds.test;version="1.0.0.SNAP
+ SHOT",org.osgi.service.component
+Bundle-SymbolicName: eu.aniketos.spdm.ds-test-bundle
+
