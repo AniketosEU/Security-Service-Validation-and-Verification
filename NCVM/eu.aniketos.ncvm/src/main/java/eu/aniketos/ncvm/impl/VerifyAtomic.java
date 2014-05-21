@@ -22,7 +22,7 @@ package eu.aniketos.ncvm.impl;
 
 import org.apache.commons.codec.binary.Base64;
 
-import eu.aniketos.components.verification.propertyverification.PropertyVerificationResult;
+//import eu.aniketos.components.verification.propertyverification.PropertyVerificationResult;
 import eu.aniketos.data.SPState;
 import eu.aniketos.ncvm.IVerificationResult;
 import eu.aniketos.ncvm.impl.NestedCompositionVerification.AniketosServices;
@@ -96,7 +96,7 @@ public class VerifyAtomic {
 		            String agreementTemplateEncoded = encoder.encodeToString(conspec.getBytes());
 		
 		            try {
-		            	PropertyVerificationResult verificationProperty = call.pvm.verifyTechnicalTrustProperties(agreementTemplateEncoded, details);
+		            	eu.aniketos.components.verification.propertyverification.PropertyVerificationResult verificationProperty = call.pvm.verifyTechnicalTrustProperties(agreementTemplateEncoded, details);
 		    			Activator.logLine("PVM result: " + verificationProperty.getVerificationResult() + "; " + verificationProperty.getVerificationExplaination());
 		    			int verified = verificationProperty.getVerificationResult();
 		    			if (verified != 0) {

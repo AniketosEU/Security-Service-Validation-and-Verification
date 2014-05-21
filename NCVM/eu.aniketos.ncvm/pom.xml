@@ -83,7 +83,6 @@
 							tests/=tests/
 						</Include-Resource>
 						<Bundle-ClassPath>
-							.,
 							lib/commons-codec-1.6.jar
 							<!-- lib/org.eclipse.bpmn2_0.7.0.201305200222.jar -->
 						</Bundle-ClassPath>
@@ -96,14 +95,84 @@
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.compendium</artifactId>
-			<version>5.0.0</version>
+			<version>${osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>${osgi.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.bpmn2</groupId>
+			<artifactId>org.eclipse.bpmn2</artifactId>
+			<version>0.7.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.common</artifactId>
+			<version>2.6.0.v20100614-1136</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore</artifactId>
+			<version>2.6.0.v20100614-1136</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+			<version>2.5.0.v20100521-1846</version>
 		</dependency>
 
+		<dependency>
+			<groupId>eu.aniketos.csvm</groupId>
+			<artifactId>csvm-dummy</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.aniketos.ncvm</groupId>
+			<artifactId>pvm-proxy</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.aniketos.marketplace</groupId>
+			<artifactId>marketplace</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.aniketos.spec</groupId>
+			<artifactId>ConSpec_Parser</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.aniketos.ncvm</groupId>
+			<artifactId>userinterface-proxy</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.aniketos.ncvm</groupId>
+			<artifactId>csvm-proxy</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.aniketos.ncvm</groupId>
+			<artifactId>marketplace-proxy</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.aniketos.ncvm</groupId>
+			<artifactId>spdm-proxy</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>eu.aniketos.data</groupId>
 			<artifactId>common-datatypes</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
-
 	</dependencies>
 </project>
