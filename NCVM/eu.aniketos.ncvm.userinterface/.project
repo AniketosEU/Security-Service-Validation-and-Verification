@@ -3,7 +3,6 @@
 	<name>eu.aniketos.ncvm.userinterface</name>
 	<comment></comment>
 	<projects>
-		<project>eu.aniketos.wp3.ncvm</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
