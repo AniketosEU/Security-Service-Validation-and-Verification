@@ -8,6 +8,7 @@
 	<properties>
 		<maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
 		<osgi.version>4.3.1</osgi.version>
+		<cxf.version>2.2.3</cxf.version>
 	</properties>
 
 	<packaging>bundle</packaging>
@@ -75,10 +76,32 @@
 		</plugins>
 	</build>
 	<dependencies>
+	  	<dependency>
+	  		<groupId>org.osgi</groupId>
+	  		<artifactId>org.osgi.compendium</artifactId>
+	  		<version>${osgi.version}</version>
+	  	</dependency>
 		<dependency>
 			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.compendium</artifactId>
-			<version>5.0.0</version>
+			<artifactId>org.osgi.core</artifactId>
+			<version>${osgi.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>eu.aniketos.ncvm</groupId>
+			<artifactId>csvm-client</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.aniketos.ncvm</groupId>
+			<artifactId>userinterface-proxy</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.aniketos.data</groupId>
+			<artifactId>common-datatypes</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
