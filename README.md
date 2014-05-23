@@ -144,15 +144,15 @@ More details, example files and a usage walkthrough will be provided on the [rep
 
 The various modules that make up the SSVV package have been developed by a number of organisations:
 
-1. CSSTM developed by Search Lab.
-2. CSVM developed by SAP.
-3. ConSpec_Parer developed by CNR.
-4. Marketplace developed by ATC.
-5. NCVM developed by LJMU.
-6. SCPM developed by LJMU.
-7. SPDM developed by TSSG.
-8. Trustworthiness Module developed by TSSG.
-9. common-datatypes developed by multiple partners, coordinated by ATC.
+1. CSSTM developed by [SEARCH-LAB](http://www.search-lab.hu/).
+2. CSVM developed by [SAP](http://www.sap.com/).
+3. ConSpec_Parer developed by [CNR](http://www.iit.cnr.it/).
+4. Marketplace developed by [ATC](http://www.atc.gr/).
+5. NCVM developed by [LJMU](http://www.ljmu.ac.uk/cmp/).
+6. SCPM developed by [LJMU](http://www.ljmu.ac.uk/cmp/).
+7. SPDM developed by [TSSG](http://www.tssg.org/).
+8. Trustworthiness Module developed by [TSSG](http://www.tssg.org/).
+9. common-datatypes developed by multiple partners, coordinated by [ATC](http://www.atc.gr/).
 
 ##Official site, external resources
 
@@ -160,7 +160,7 @@ Please see the [Aniketos project website](http://aniketos.eu/) for more details.
 
 ##About the developers
 
-The initial code for this project was developed as part of the Aniketos project, partly funded by the European Community's Seventh Framework Programme under grant agreement no. 257930.
+The initial code for this project was developed as part of the [Aniketos project]((http://aniketos.eu/)), partly funded by the European Community's Seventh Framework Programme under grant agreement no. 257930.
 
 ##Updates and list of known issues
 
