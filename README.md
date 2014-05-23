@@ -1,13 +1,11 @@
-Security-Service-Validation-and-Verification
-============================================
-
-Security Service Validation and Verification
-
-Details of how to build and run the full SSVV toolchain will be added in the coming days, and the sections below will fill with useful information. Stay tuned.
+#Security-Service-Validation-and-Verification
 
 ##Short description
 
 The Security Service Validation and Verification package provides a series of modules that work together to validate the security properties of a Web Service composition. The package is given a selection of service compositions (provided in the form of BPMN processes with Web Services bound to the service tasks), along with the security policy to be fulfilled. The package then performs various checks on the services to establish whether each composition satisfies the policy, returning an ordered list (ordered in terms of security) of the services that do.
+
+
+[![The SSVV package running within the Service Composition Framework.](http://www.flypig.co.uk/images/screenshots/aniketos-ssvv03small.png)](http://www.flypig.co.uk/images/screenshots/aniketos-ssvv03.png)
 
 ##Overview
 
