@@ -92,11 +92,13 @@ The open source SSVV package provides the following features:
 The following are very brief instructions; these will be fleshed out in much more detail in due course. Unfortuately, although these steps look simple it's sadly often quite tricky to get everything building and running correctly. More detailed instructions to catch these 'gotchas' will be added in soon.
 
 Build the modules:
+
 1. Check out everything from this repository into a fresh Eclipse workspace.
 2. Import [Apache CXF DOSGi RI 1.3](http://search.maven.org/remotecontent?filepath=org/apache/cxf/dosgi/cxf-dosgi-ri-singlebundle-distribution/1.3/cxf-dosgi-ri-singlebundle-distribution-1.3.jar) as a project into the workspace.
 3. Call ```maven install``` on each of the packages (except the SCPM and NCVM Eclipse plugin modules).
 
 Execute the modules
+
 1. Install [Apache Karaf 2.3.1]().
 2. Add the SSVV feature.
 3. Install the SSVV feature.
@@ -112,6 +114,7 @@ Bugs, suggestions and issues can be submitted through the Github [issue tracker]
 ##Installation
 
 The easiest way to install and execute the modules is using an Apache Karaf container and the feature provided:
+
 1. Install [Apache Karaf 2.3.1]().
 2. Add the SSVV feature.
 3. Install the SSVV feature.
