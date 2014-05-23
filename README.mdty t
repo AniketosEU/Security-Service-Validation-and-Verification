@@ -63,13 +63,58 @@ There are various classes and datatypes used for interoperability between servic
 
 ##Requirements
 
+###Build
+
+The SSVV package requires [JDK 1.6](http://www.oracle.com/technetwork/java/javaee/downloads/java-archive-downloads-eesdk-419427.html#java_ee_sdk-6-oth-JPR). To build all packages [Eclipse Kepler](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/keplersr2), maven and the [Apache CXF DOSGi RI version 1.3](http://cxf.apache.org/dosgi-releases.html) are required.
+
+###Run
+
+The user-interface elements run as [Eclipse](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/keplersr2) plugins. The Web Servie processes are build as OSGi bundles and are expected to be run in [Apache Karaf](https://karaf.apache.org/index/community/download/archives.html#Karaf2.3.1). Details of how to do this are provided below.
+
 ##Features
+
+The open source SSVV package provides the following features:
+
+* Security verification and validation of Web Service compositions.
+* Input as BPMN2 compositions and ConSpec security policies.
+* Ordering of services based on their security capabilities.
+* Fully automated: can output results without the need for user-intervention.
+* Supports multiple security properties:
+ * Confidentiality requirements.
+ * Dangerous function checks.
+ * Runtime fuzz-testing.
+ * Separation of Duty (not currently part of the open source release).
+ * Binding of Duty (not currently part of the open source release).
+* Cloud execution: modules can be executed and used remotely.
 
 ##How to get started
 
+The following are very brief instructions; these will be fleshed out in much more detail in due course. Unfortuately, although these steps look simple it's sadly often quite tricky to get everything building and running correctly. More detailed instructions to catch these 'gotchas' will be added in soon.
+
+Build the modules:
+1. Check out everything from this repository into a fresh Eclipse workspace.
+2. Import [Apache CXF DOSGi RI 1.3](http://search.maven.org/remotecontent?filepath=org/apache/cxf/dosgi/cxf-dosgi-ri-singlebundle-distribution/1.3/cxf-dosgi-ri-singlebundle-distribution-1.3.jar) as a project into the workspace.
+3. Call ```maven install``` on each of the packages (except the SCPM and NCVM Eclipse plugin modules).
+
+Execute the modules
+1. Install [Apache Karaf 2.3.1]().
+2. Add the SSVV feature.
+3. Install the SSVV feature.
+
 ##Contributing (guide)
 
+All of the modules here are open source (either BSD-new or LGPL); check the licence files inside individual modules to find out which.
+
+We're very keen for others to contribute to the project. Please fork the repository and let us know if you have any suggestions, bugs or suggested changes.
+
+Bugs, suggestions and issues can be submitted through the Github [issue tracker](https://github.com/AniketosEU/Security-Service-Validation-and-Verification/issues).
+
 ##Installation
+
+The easiest way to install and execute the modules is using an Apache Karaf container and the feature provided:
+1. Install [Apache Karaf 2.3.1]().
+2. Add the SSVV feature.
+3. Install the SSVV feature.
 
 ##Modules, APIs
 
