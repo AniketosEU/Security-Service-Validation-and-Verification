@@ -87,6 +87,8 @@ The easiest way to install and execute the modules is using an Apache Karaf cont
 2. From the Karaf command line add the SSVV feature: ```features:addurl file:<eclipse workspace>/eu.aniketos.ncvm/features.xml```
 3. From the Karaf command line install the SSVV feature: ```features:install SSVV```
 
+Registration isn't a requirement for the open source modules here, but is required to make use of some of the remote services. For more information about this, see the [registration info page](https://github.com/AniketosEU/Security-Service-Validation-and-Verification/wiki/Registration).
+
 ##Modules, APIs
 
 The SSVV package is comprised of the following modules. Links to the full APIs for these modules will be added in due course.
