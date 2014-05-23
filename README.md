@@ -63,9 +63,12 @@ Build the modules:
 
 Execute the modules
 
-1. Install [Apache Karaf 2.3.1]().
-2. Add the SSVV feature.
-3. Install the SSVV feature.
+1. Install [Apache Karaf 2.3.1](https://karaf.apache.org/index/community/download/archives.html#Karaf2.3.1).
+2. Fire up Karaf.
+2. From the Karaf command line add the SSVV feature: ```features:addurl file:<eclipse workspace>/eu.aniketos.ncvm/features.xml```
+3. From the Karaf command line install the SSVV feature: ```features:install SSVV```
+
+See the [package wiki](https://github.com/AniketosEU/Security-Service-Validation-and-Verification/wiki) for more info.
 
 ##Contributing (guide)
 
@@ -80,8 +83,9 @@ Bugs, suggestions and issues can be submitted through the Github [issue tracker]
 The easiest way to install and execute the modules is using an Apache Karaf container and the feature provided:
 
 1. Install [Apache Karaf 2.3.1](https://karaf.apache.org/index/community/download/archives.html#Karaf2.3.1).
-2. Add the SSVV feature.
-3. Install the SSVV feature.
+2. Fire up Karaf.
+2. From the Karaf command line add the SSVV feature: ```features:addurl file:<eclipse workspace>/eu.aniketos.ncvm/features.xml```
+3. From the Karaf command line install the SSVV feature: ```features:install SSVV```
 
 ##Modules, APIs
 
@@ -138,7 +142,7 @@ The general steps for using these services are:
 5. Deploy the composite service to the Service Runtime Environment (part of the [SSSD package](https://github.com/AniketosEU/Secure-Service-Specification-and-Deployment).
 6. Profit!
 
-More details, example files and a usage walkthrough will be provided on the [repository wiki](https://github.com/AniketosEU/Security-Service-Validation-and-Verification/wiki) in due course.
+More details, example files and a usage walkthrough will be provided on the [package wiki](https://github.com/AniketosEU/Security-Service-Validation-and-Verification/wiki) in due course.
 
 ##Credits
 
