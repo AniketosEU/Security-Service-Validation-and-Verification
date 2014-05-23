@@ -23,6 +23,8 @@ The verification process involves an analysis of the service implementation to e
 
 Other tests can be added to the package as they're implemented. Other Aniketos packages increase the range of checks further (e.g. trustworthiness/reputation and runtime monitoring checks). The output of the verification process is a list of recommended secure composite services ranked according to the security priorities of the service developers.
 
+You can [view screenshots](https://github.com/AniketosEU/Security-Service-Validation-and-Verification/wiki/Screenshots) of the modules in action on the wiki.
+
 The package is split into a number of modules, details of which are provided in the Modules section below.
 
 ##Requirements
