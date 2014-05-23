@@ -35,6 +35,9 @@ The SSVV package requires [JDK 1.6](http://www.oracle.com/technetwork/java/javae
 
 The user-interface elements run as [Eclipse](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/keplersr2) plugins. The Web Servie processes are build as OSGi bundles and are expected to be run in [Apache Karaf](https://karaf.apache.org/index/community/download/archives.html#Karaf2.3.1). Details of how to do this are provided below.
 
+
+Registration isn't a requirement for the open source modules here, but is required to make use of some of the remote services. For more information about this, see the [registration info page](https://github.com/AniketosEU/Security-Service-Validation-and-Verification/wiki/Registration).
+
 ##Features
 
 The open source SSVV package provides the following features:
@@ -86,8 +89,6 @@ The easiest way to install and execute the modules is using an Apache Karaf cont
 2. Fire up Karaf.
 2. From the Karaf command line add the SSVV feature: ```features:addurl file:<eclipse workspace>/eu.aniketos.ncvm/features.xml```
 3. From the Karaf command line install the SSVV feature: ```features:install SSVV```
-
-Registration isn't a requirement for the open source modules here, but is required to make use of some of the remote services. For more information about this, see the [registration info page](https://github.com/AniketosEU/Security-Service-Validation-and-Verification/wiki/Registration).
 
 ##Modules, APIs
 
