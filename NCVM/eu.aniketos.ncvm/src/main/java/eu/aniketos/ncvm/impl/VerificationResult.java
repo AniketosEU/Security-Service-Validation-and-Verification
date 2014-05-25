@@ -22,10 +22,34 @@ package eu.aniketos.ncvm.impl;
 
 import eu.aniketos.ncvm.IVerificationResult;
 
+/**
+ * Encapsulates the results from performing the verification on a service.
+ * @author LJMU/David Llewellyn-Jones
+ *
+ */
 public class VerificationResult implements IVerificationResult {
 
+	/**
+	 * Stores the result of the verification process.
+	 * -1 indicates an error has occurred.
+	 * 0 indicates that one or more verification steps has failed.
+	 * A positive value indicates that all verification steps have been successful. Large values imply greated security where this makes sense.
+	 */
 	public int result;
+
+	/**
+	 * A human-readable textual description of any error that has occurred.
+	 * An empty string if no error has occurred.
+	 */
 	public String errorExplanation;
+
+	/**
+	 * Indicates any error conditions.
+	 * 0 represents no error has occurred
+	 * Any other value indicates an error.
+	 * See the getErrorValue interface description for possilble error values.
+	 * @see eu.aniketos.ncvm.IVerificationResult#getErrorValue()
+	 */
 	public int valueError;
 
 	public VerificationResult() {
@@ -34,11 +58,17 @@ public class VerificationResult implements IVerificationResult {
 		errorExplanation = "Value not set";
 	}
 
+	/* (non-Javadoc)
+	 * @see eu.aniketos.ncvm.IVerificationResult#getResult()
+	 */
 	@Override
 	public int getResult() {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see eu.aniketos.ncvm.IVerificationResult#setResult(int)
+	 */
 	@Override
 	public void setResult(int value) {
 		valueError = 0;
@@ -46,6 +76,9 @@ public class VerificationResult implements IVerificationResult {
 		result = value;
 	}
 
+	/* (non-Javadoc)
+	 * @see eu.aniketos.ncvm.IVerificationResult#getErrorExplanation()
+	 */
 	@Override
 	public String getErrorExplanation() {
 		String explanation = "";
@@ -55,6 +88,9 @@ public class VerificationResult implements IVerificationResult {
 		return explanation;
 	}
 
+	/* (non-Javadoc)
+	 * @see eu.aniketos.ncvm.IVerificationResult#setError(int, java.lang.String)
+	 */
 	@Override
 	public void setError(int code, String explanation) {
 		valueError = code;
@@ -62,6 +98,9 @@ public class VerificationResult implements IVerificationResult {
 		result = -1;
 	}
 
+	/* (non-Javadoc)
+	 * @see eu.aniketos.ncvm.IVerificationResult#clearError()
+	 */
 	@Override
 	public void clearError() {
 		valueError = 0;
@@ -69,9 +108,11 @@ public class VerificationResult implements IVerificationResult {
 		result = 0;
 	}
 
+	/* (non-Javadoc)
+	 * @see eu.aniketos.ncvm.IVerificationResult#getErrorValue()
+	 */
 	@Override
 	public int getErrorValue() {
 		return valueError;
 	}
-
 }
