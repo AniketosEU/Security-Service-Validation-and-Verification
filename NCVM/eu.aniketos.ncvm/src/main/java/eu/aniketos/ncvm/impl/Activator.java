@@ -27,12 +27,39 @@ import org.osgi.framework.BundleContext;
 
 import eu.aniketos.ncvm.userinterface.INCVMFeedback;
 
+/**
+ * OSGi activator class. Sets things up when the module
+ * is started in the OSGi container, including exposing
+ * methods for access to other modules.
+ * @author LJMU/David Llewellyn-Jones
+ *
+ */
 public class Activator implements BundleActivator {
+	/**
+	 * The OSGi context for the module.
+	 */
 	private static BundleContext context;
+
+	/**
+	 * A reference to this object, so it can be accessed from anywhere
+	 * using a static reference.
+	 */
 	private static Activator plugin;
+
+	/**
+	 * Global object for managing external services such as
+	 * the CSVM, PVM, SPDM, Marketplace, etc.
+	 */
 	private Services services;
+
+	/**
+	 * Global object for storing the module's settings.
+	 */
 	private Settings settings;
 
+	/* (non-Javadoc)
+	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
+	 */
 	public void start(BundleContext context) throws Exception {
 		// Used to expose as a Web Service when deployed in Karaf using CXF
 		plugin = this;
@@ -53,19 +80,37 @@ public class Activator implements BundleActivator {
 		services.initialiseServices();
 	}
 
+	/* (non-Javadoc)
+	 * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
+	 */
 	public void stop(BundleContext bundleContext) throws Exception {
 		services.unregisterService();
 		Activator.context = null;
 	}
 
+	/**
+	 * Returns a reference to this activator class.
+	 * @return a reference to this class.
+	 */
 	public static Activator getDefault() {
 		return plugin;
 	}
 
+	/**
+	 * Returns the context of the OSGi module.
+	 * @return the module context.
+	 */
 	static BundleContext getContext() {
 		return context;
 	}
 
+	/**
+	 * Log a user feedback message. The functionality may vary, but
+	 * by default this will print the message to the console and also
+	 * send it to the remote feedback interface.
+	 * If the feedback interface can't be accessed no warning is printed.
+	 * @param message the log message.
+	 */
 	public static void logLine(String message) {
 		// Log the message to the screen
 		System.out.println(message);
@@ -82,6 +127,14 @@ public class Activator implements BundleActivator {
 		}
 	}
 	
+	/**
+	 * Log a user feedback message. The functionality may vary, but
+	 * by default this will print the message to the console and also
+	 * send it to the remote feedback interface.
+	 * In contrast to the logLine method, if the feedback interface can't 
+	 * be accessed an warning message is output to the console.
+	 * @param message the log message.
+	 */
 	public static void logLineCheck(String message) {
 		// Log the message to the screen
 		System.out.println(message);
@@ -101,10 +154,19 @@ public class Activator implements BundleActivator {
 		}
 	}
 	
+	/**
+	 * Get a reference to the global settings object.
+	 * @return the global settings object.
+	 */
 	public Settings getSettings () {
 		return settings;
 	}
 
+	/**
+	 * Get a reference to the global class for managing and
+	 * accessing the external services (CSVM, PVM, SPDM, Marketplace, etc.).
+	 * @return the global service management class.
+	 */
 	public Services getServices () {
 		return services;
 	}
