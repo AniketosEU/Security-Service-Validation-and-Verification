@@ -52,6 +52,9 @@ public class VerificationResult implements IVerificationResult {
 	 */
 	public int valueError;
 
+	/**
+	 * Initialise the object.
+	 */
 	public VerificationResult() {
 		result = 0;
 		valueError = 1;

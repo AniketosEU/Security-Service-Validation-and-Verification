@@ -36,6 +36,11 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xml.type.AnyType;
 
+/**
+ * Support class for working with BPMN files.
+ * @author LJMU/David Llewellyn-Jones
+ *
+ */
 class BPMNSupport {
 	static String getExtensionValue (BaseElement element, String extensionName) {
 		String result = "";

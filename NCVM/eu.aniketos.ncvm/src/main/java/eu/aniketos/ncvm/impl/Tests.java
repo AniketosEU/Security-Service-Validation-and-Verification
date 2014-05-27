@@ -45,6 +45,11 @@ import eu.aniketos.marketplace.MarketplaceSearchParams;
 import eu.aniketos.marketplace.ServiceDescriptor;
 import eu.aniketos.ncvm.impl.NestedCompositionVerification.AniketosServices;
 
+/**
+ * Class for performing various tests on the external service.
+ * @author LJMU/David Llewellyn-Jones
+ *
+ */
 class Tests {
 	private static String details = "";
 	private static String conspec = "";
@@ -52,6 +57,12 @@ class Tests {
 	private static String serviceID = "";
 	private static String propertyID = "";
 
+	/**
+	 * Perform various tests on the external classes.
+	 * This checks the external services are accessible. If they are, it performs
+	 * tests to check the functionality required by the NCVM is available and
+	 * that the results match expectations.
+	 */
 	static void performTests () {
 		AniketosServices call = ModuleSupport.ConnectToAniketosServices ();
 		boolean[] passed = new boolean[4];
@@ -97,6 +108,12 @@ class Tests {
 		Activator.logLine("All tests completed");
 	}
 	
+	/**
+	 * Load a complete text file into a string for use by the testing process.
+	 * @param file the pathname of the file to read in.
+	 * @return the contents of the file.
+	 * @throws IOException generated if there is a problem while attempting to read from the file.
+	 */
 	private static String LoadTestFile (String file) throws IOException {
 		String contents = "";
 		BundleContext context = Activator.getContext();
@@ -123,6 +140,13 @@ class Tests {
 		return contents;
 	}
 
+	/**
+	 * Perform various tests to ensure the CSVM is accessible and acts as expected.
+	 * @param csvm the service to test.
+	 * @param bpmn a BPMN composition plan to send to the service.
+	 * @param conspec a ConSpec security policy to send to the service.
+	 * @return true if the service was accessible and the tests returned the results expected.
+	 */
 	static boolean testCSVM (CompositionSecurityValidationService csvm, String bpmn, String conspec) {
 		int passed = 0;
 		boolean result = false;
@@ -155,6 +179,13 @@ class Tests {
 		return result;
 	}
 
+	/**
+	 * Perform various tests to ensure the PVM is accessible and acts as expected.
+	 * @param pvm the service to test.
+	 * @param conspec a ConSpec security policy to send to the service.
+	 * @param details info about the service to be checked. For example, the name of the service in the marketplace.
+	 * @return true if the service was accessible and the tests returned the results expected.
+	 */
 	static boolean testPVM (PropertyVerificationService pvm, String conspec, String details) {
 		int passed = 0;
 		boolean result = false;
@@ -194,6 +225,13 @@ class Tests {
 		return result;
 	}
 
+	/**
+	 * Perform various tests to ensure the SPDM is accessible and acts as expected.
+	 * @param spdm the service to test.
+	 * @param serviceID the ID of a service to store and retrieve a property against in the cache.
+	 * @param propertyID the ID of a property to store and retrieve to and from the cache.
+	 * @return true if the service was accessible and the tests returned the results expected.
+	 */
 	static boolean testSPDM (ISPDMService spdm, String serviceID, String propertyID) {
 		int passed = 0;
 		boolean result = false;
@@ -241,6 +279,12 @@ class Tests {
 		return result;
 	}
 
+	/**
+	 * Perform various tests to ensure the Marketplace is accessible and acts as expected.
+	 * @param marketplace the service to test.
+	 * @param serviceID the ID of a service.
+	 * @return true if the service was accessible and the tests returned the results expected.
+	 */
 	static boolean testMarketplace (IMarketplace marketplace, String serviceID) {
 		int passed = 0;
 		boolean result = false;

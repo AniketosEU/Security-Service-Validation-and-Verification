@@ -31,7 +31,7 @@ public interface PropertyVerificationService {
      * template. 
      *
      * @param AgreementTemplate The agreement template of the service compositon.
-     * @param ServiceImplementation URL to the service implementation (zip file). 
+     * @param ServiceImplementationUrl URL to the service implementation (zip file). 
      * @return The validation result. 
      */
     public PropertyVerificationResult verifyTechnicalTrustProperties(String AgreementTemplate, 

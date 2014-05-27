@@ -69,7 +69,10 @@ public class SecurityProperty implements ISecurityProperty {
 	 * 
 	 * @param propertyID
 	 * @param value
+	 * @param service 
 	 * @param freshness
+	 * @param type 
+	 * @param state 
 	 */
 	public SecurityProperty(String propertyID, String value,
 			IWebService service, Date freshness, SPType type, SPState state) {
@@ -105,19 +108,26 @@ public class SecurityProperty implements ISecurityProperty {
 		this.freshness = null;
 	}
 
+	/**
+	 * Get the ID of the security property as a number.
+	 * 
+	 * @return security property ID.
+	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
+	 * Get the name of the security property.
 	 * 
-	 * @return
+	 * @return property name.
 	 */
 	public String getPropertyID() {
 		return propertyID;
 	}
 
 	/**
+	 * Set the name of the security property.
 	 * 
 	 * @param propertyID
 	 */
@@ -126,8 +136,9 @@ public class SecurityProperty implements ISecurityProperty {
 	}
 
 	/**
+	 * Get the security property value.
 	 * 
-	 * @return
+	 * @return security property value.
 	 */
 	public String getPropertyValue() {
 		return this.propertyValue;
@@ -138,9 +149,9 @@ public class SecurityProperty implements ISecurityProperty {
 	}
 
 	/**
-	 * Signed verfication date of SecurityProperty
+	 * Signed verification date of SecurityProperty
 	 * 
-	 * @return
+	 * @return freshness.
 	 */
 	public Date getFreshness() {
 		return this.freshness;
@@ -159,16 +170,26 @@ public class SecurityProperty implements ISecurityProperty {
 		return this.propertyState;
 	}
 
+	/**
+	 * Get the security property state.
+	 * 
+	 * @param state
+	 */
 	public void setState(SPState state) {
 		this.propertyState = state;
 	}
 
+	/* (non-Javadoc)
+	 * @see eu.aniketos.data.ISecurityProperty#getCertificate()
+	 */
 	public X509Certificate getCertificate() {
 		return this.certificate;
 	}
 
+	/* (non-Javadoc)
+	 * @see eu.aniketos.data.ISecurityProperty#setCertificate(java.security.cert.X509Certificate)
+	 */
 	public void setCertificate(X509Certificate certificate) {
 		this.certificate = certificate;
 	}
-
 }

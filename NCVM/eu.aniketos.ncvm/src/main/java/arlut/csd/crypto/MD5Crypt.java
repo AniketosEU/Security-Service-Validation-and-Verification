@@ -53,6 +53,7 @@ public final class MD5Crypt {
 
 	/**
 	 * Command line test rig.
+	 * @param argv command line parameters
 	 */
 
 	static public void main(String argv[]) {
@@ -407,6 +408,7 @@ public final class MD5Crypt {
 	 * @param md5CryptText
 	 *            The Apache or FreeBSD-md5Crypted hash used to authenticate the
 	 *            plaintextPass.
+	 * @return true if the password matches the hash.
 	 */
 
 	static public final boolean verifyPassword(String plaintextPass, String md5CryptText) {

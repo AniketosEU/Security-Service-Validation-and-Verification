@@ -40,6 +40,11 @@ import eu.aniketos.ncvm.userinterface.INCVMFeedback;
 import eu.aniketos.ncvm.userinterface.proxy.INCVMProxy;
 import eu.aniketos.ncvm.userinterface.proxy.NCVMFeedbackProxy;
 
+/**
+ * Class for managing external services.
+ * @author LJMU/David Llewellyn-Jones
+ *
+ */
 public class Services {
 	private static final String ADDRESS = "http://%s:9093/ncvm";
 
@@ -55,6 +60,10 @@ public class Services {
 
 	private ServiceTracker<?, ?> trackerMarketplace = null;
 
+	/**
+	 * Initially register the service and when the module starts
+	 * so that it can be accessed by other services.
+	 */
 	public void registerService() {
 		Hashtable<String, String> props = new Hashtable<String, String>();
 		String registerAddress;
@@ -83,14 +92,25 @@ public class Services {
 		System.out.println("NCVM registered at " + registerAddress + "?wsdl");
 	}
 	
+	/**
+	 * Unregister the service so it's no longer accessible to other external services.
+	 */
 	public void unregisterService() {
 		registration.unregister();
 	}
 	
+	/**
+	 * Get the registration details for the service.
+	 * @return registration details.
+	 */
 	public ServiceRegistration<?> getRegistration () {
 		return registration;
 	}
 	
+	/**
+	 * Initialise the external services so that they can be accessed
+	 * from this service.
+	 */
 	public void initialiseServices() {
 		initialiseNCVMFeedback();
 		initialiseCSVM();
@@ -99,6 +119,13 @@ public class Services {
 		initialiseMarketplace();
 	}
 	
+	/**
+	 * Set up the service tracker for an external service.
+	 * @param tracker service tracker
+	 * @param track true of a service tracker should be used for this service.
+	 * @param clazz the class name of the service to track.
+	 * @return the initialised service tacker.
+	 */
 	public ServiceTracker<?, ?> initialiseService(ServiceTracker<?, ?> tracker, boolean track, String clazz) {
 		if (track) {
 			if (tracker == null) {
@@ -115,26 +142,46 @@ public class Services {
 		return tracker;
 	}
 	
+	/**
+	 * Initialise the service tracker for the CSVM.
+	 */
 	public void initialiseCSVM() {
 		trackerCSVM = initialiseService(trackerCSVM, Activator.getDefault().getSettings().isCsvmTrack(), CompositionSecurityValidationService.class.getName());
 	}
 
+	/**
+	 * Initialise the service tracker for the PVM.
+	 */
 	public void initialisePVM() {
 		trackerPVM = initialiseService(trackerPVM, Activator.getDefault().getSettings().isPvmTrack(), PropertyVerificationService.class.getName());
 	}
 	
+	/**
+	 * Initialise the service tracker for the SPDM.
+	 */
 	public void initialiseSPDM() {
 		trackerSPDM = initialiseService(trackerSPDM, Activator.getDefault().getSettings().isSpdmTrack(), ISPDMService.class.getName());
 	}
 	
+	/**
+	 * Initialise the service tracker for the NCVM Feedback Interface.
+	 */
 	public void initialiseNCVMFeedback() {
 		trackerNCVMFeedback = initialiseService(trackerNCVMFeedback, Activator.getDefault().getSettings().isNcvmFeedbackTrack(), INCVMFeedback.class.getName());
 	}
 	
+	/**
+	 * Initialise the service tracker for the Marketplace.
+	 */
 	public void initialiseMarketplace() {
 		trackerMarketplace = initialiseService(trackerMarketplace, Activator.getDefault().getSettings().isMarketplaceTrack(), IMarketplace.class.getName());
 	}
 	
+	/**
+	 * Return a proxy to the external CSVM which will act as if it's a local version.
+	 * @return the proxy object.
+	 * @throws Exception if the service doesn't respond before the timeout period expires.
+	 */
 	public CompositionSecurityValidationService getCSVM() throws Exception {
 		CompositionSecurityValidationService csvm = null;
 		// Create a reference to the property verification service
@@ -149,6 +196,11 @@ public class Services {
 		return csvm;
 	}
 
+	/**
+	 * Return a proxy to the external PVM which will act as if it's a local version.
+	 * @return the proxy object.
+	 * @throws Exception if the service doesn't respond before the timeout period expires.
+	 */
 	public PropertyVerificationService getPVM() throws Exception {
 		PropertyVerificationService pvm = null;
 		// Create a reference to the property verification service
@@ -163,6 +215,11 @@ public class Services {
 		return pvm;
 	}
 
+	/**
+	 * Return a proxy to the external SPDM which will act as if it's a local version.
+	 * @return the proxy object.
+	 * @throws Exception if the service doesn't respond before the timeout period expires.
+	 */
 	public ISPDMService getSPDM() throws Exception {
 		ISPDMService spdm = null;
 		// Create a reference to the property verification service
@@ -177,6 +234,11 @@ public class Services {
 		return spdm;
 	}
 
+	/**
+	 * Return a proxy to the external NCVM Feedback interface which will act as if it's a local version.
+	 * @return the proxy object.
+	 * @throws Exception if the service doesn't respond before the timeout period expires.
+	 */
 	public INCVMFeedback getNCVMFeedback() throws Exception {
 		INCVMFeedback ncvmFeedback = null;
 		// Create a reference to the property verification service
@@ -190,6 +252,11 @@ public class Services {
 		return ncvmFeedback;
 	}
 
+	/**
+	 * Return a proxy to the external Marketplace which will act as if it's a local version.
+	 * @return the proxy object.
+	 * @throws Exception if the service doesn't respond before the timeout period expires.
+	 */
 	public IMarketplace getMarketplace() throws Exception {
 		IMarketplace marketplace = null;
 		// Create a reference to the marketplace service

@@ -82,9 +82,21 @@ public class BasicAuthAuthorizationInterceptor extends SoapHeaderInterceptor {
 	 * Both NONE and FAIL are liable to generate HTTP error responses depending on the value of blockPage
 	 */
 	public enum AuthLevel {
+		/**
+		 * User is not authorised (guest).
+		 */
 		NONE,
+		/**
+		 * Authorisation failed.
+		 */
 		FAIL,
+		/**
+		 * Standard level of authentication.
+		 */
 		NORMAL,
+		/**
+		 * Extended or full authentication.
+		 */
 		FULL
 	}
 	

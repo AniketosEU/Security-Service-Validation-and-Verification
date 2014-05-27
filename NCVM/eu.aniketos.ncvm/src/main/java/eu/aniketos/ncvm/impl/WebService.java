@@ -14,6 +14,11 @@ package eu.aniketos.ncvm.impl;
 
 import eu.aniketos.data.IWebService;
 
+/**
+ * Details for a Web Service as stored by the SPDM.
+ * @author TSSG/Bernard Butler and Arif Fareed
+ *
+ */
 public class WebService implements IWebService {
 
 	@SuppressWarnings("unused")
@@ -30,13 +35,16 @@ public class WebService implements IWebService {
 
 	private String serviceID;
 
+	/**
+	 * Initialise the class with dummy values.
+	 */
 	public WebService() {
 		this.serviceID = "http://default.url";
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Get the ID of the Web Sevice.
+	 * @return Web Service ID.
 	 */
 	public int getId() {
 		return id;

@@ -21,9 +21,16 @@
 package eu.aniketos.ncvm.impl;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.Map;
 
+/**
+ * Class for storing global settings for the module.
+ * Settings are initially loaded in from the configure/config.txt file,
+ * but some settings can also be configured through the external 
+ * service interface of the NCVM.
+ * @author LJMU/David Llewellyn-Jones
+ *
+ */
 public class Settings {
 	private String ncvmFeedbackWsdl;
 	private String csvmWsdl;
@@ -37,7 +44,10 @@ public class Settings {
 	private boolean marketplaceTrack;
 	private String registerAddress;
 
-	public Settings() throws MalformedURLException {
+	/**
+	 * Initialise the settings class.
+	 */
+	public Settings() {
 		ncvmFeedbackWsdl = "http://localhost:9094/ncvmfeedback?wsdl";
 		csvmWsdl = "http://http://ec2-54-235-118-152.compute-1.amazonaws.com:9095/csvm?wsdl";
 		pvmWsdl = "http://http://ec2-54-235-118-152.compute-1.amazonaws.com:9090/pvm?wsdl";
@@ -53,10 +63,19 @@ public class Settings {
 		registerAddress = null;
 	}
 	
+	/**
+	 * Load the default settings from configuration file configure/config.txt
+	 * @throws IOException if an error is generated when attempting to read the file.
+	 */
 	public void LoadConfigurationDefault() throws IOException {
 		LoadConfiguration("configure/config.txt");
 	}
 
+	/**
+	 * Load settings from a configuration file.
+	 * @param file the file to load the configuration details from.
+	 * @throws IOException if an error is generated when attempting to read the file.
+	 */
 	public void LoadConfiguration(String file) throws IOException {
 		Map<String, String> configuration = EncodeSupport.LoadKeyValueFile (file);
 
@@ -103,141 +122,192 @@ public class Settings {
 	}
 	
 	/**
-	 * @return the ncvmFeedbackWsdl
+	 * Returns the URL of the WSDL for the NCVM Feedback interface.
+	 * The returned value is the URL including the "?wsdl" suffix.
+	 * @return ncvmFeedbackWsdl the URL for the WSDL.
 	 */
 	public String getNcvmFeedbackWsdl() {
 		return ncvmFeedbackWsdl;
 	}
+
 	/**
-	 * @param ncvmFeedbackWsdl the ncvmFeedbackWsdl to set
+	 * Set the URL of the WSDL for the NCVM Feedback interface.
+	 * The value of the URL should include the "?wsdl" suffix.
+	 * @param ncvmFeedbackWsdl the URL to set
 	 */
 	public void setNcvmFeedbackWsdl(String ncvmFeedbackWsdl) {
 		this.ncvmFeedbackWsdl = ncvmFeedbackWsdl;
 		Activator.logLine("Feedback (" + (ncvmFeedbackTrack?"tracked":"declarative") + "): " + ncvmFeedbackWsdl);
 	}
+
 	/**
-	 * @return the csvmWsdl
+	 * Returns the URL of the WSDL for the CSVM.
+	 * The returned value is the URL including the "?wsdl" suffix.
+	 * @return csvmWsdl the URL for the WSDL.
 	 */
 	public String getCsvmWsdl() {
 		return csvmWsdl;
 	}
+
 	/**
-	 * @param csvmWsdl the csvmWsdl to set
+	 * Set the URL of the WSDL for the CSVM.
+	 * The value of the URL should include the "?wsdl" suffix.
+	 * @param csvmWsdl the URL to set
 	 */
 	public void setCsvmWsdl(String csvmWsdl) {
 		this.csvmWsdl = csvmWsdl;
 		Activator.logLine("CSVM (" + (csvmTrack?"tracked":"declarative") + "): " + csvmWsdl);
 	}
+
 	/**
-	 * @return the pvmWsdl
+	 * Returns the URL of the WSDL for the PVM.
+	 * The returned value is the URL including the "?wsdl" suffix.
+	 * @return pvmWsdl the URL for the WSDL.
 	 */
 	public String getPvmWsdl() {
 		return pvmWsdl;
 	}
+
 	/**
-	 * @param pvmWsdl the pvmWsdl to set
+	 * Set the URL of the WSDL for the PVM.
+	 * The value of the URL should include the "?wsdl" suffix.
+	 * @param pvmWsdl the URL to set
 	 */
 	public void setPvmWsdl(String pvmWsdl) {
 		this.pvmWsdl = pvmWsdl;
 		Activator.logLine("PVM (" + (pvmTrack?"tracked":"declarative") + "): " + pvmWsdl);
 	}
+
 	/**
-	 * @return the spdmWsdl
+	 * Returns the URL of the WSDL for the SPDM.
+	 * The returned value is the URL including the "?wsdl" suffix.
+	 * @return spdmWsdl the URL for the WSDL.
 	 */
 	public String getSpdmWsdl() {
 		return spdmWsdl;
 	}
+
 	/**
-	 * @param spdmWsdl the spdmWsdl to set
+	 * Set the URL of the WSDL for the SPDM.
+	 * The value of the URL should include the "?wsdl" suffix.
+	 * @param spdmWsdl the URL to set
 	 */
 	public void setSpdmWsdl(String spdmWsdl) {
 		this.spdmWsdl = spdmWsdl;
 		Activator.logLine("SPDM (" + (spdmTrack?"tracked":"declarative") + "): " + spdmWsdl);
 	}
+
 	/**
-	 * @return the marketplaceWsdl
+	 * Returns the URL of the WSDL for the Marketplace.
+	 * The returned value is the URL including the "?wsdl" suffix.
+	 * @return marketplaceWsdl the URL for the WSDL.
 	 */
 	public String getMarketplaceWsdl() {
 		return marketplaceWsdl;
 	}
+
 	/**
-	 * @param marketplaceWsdl the marketplaceWsdl to set
+	 * Set the URL of the WSDL for the Marketplace.
+	 * The value of the URL should include the "?wsdl" suffix.
+	 * @param marketplaceWsdl the URL to set
 	 */
 	public void setMarketplaceWsdl(String marketplaceWsdl) {
 		this.marketplaceWsdl = marketplaceWsdl;
 		Activator.logLine("Marketplace (" + (marketplaceTrack?"tracked":"declarative") + "): " + marketplaceWsdl);
 	}
+
 	/**
-	 * @return the ncvmFeedbackTrack
+	 * Gets whether the NCVM Feedback interface is set to be tracked.
+	 * @return true if it should be tracked.
 	 */
 	public boolean isNcvmFeedbackTrack() {
 		return ncvmFeedbackTrack;
 	}
+
 	/**
-	 * @param ncvmFeedbackTrack the ncvmTrack to set
+	 * Set whether the NCVM Feedback interface should be tracked.
+	 * @param ncvmFeedbackTrack true if it should be tracked.
 	 */
 	public void setNcvmFeedbackTrack(boolean ncvmFeedbackTrack) {
 		this.ncvmFeedbackTrack = ncvmFeedbackTrack;
 	}
+
 	/**
-	 * @return the csvmTrack
+	 * Gets whether the CSVM is set to be tracked.
+	 * @return true if it should be tracked.
 	 */
 	public boolean isCsvmTrack() {
 		return csvmTrack;
 	}
+
 	/**
-	 * @param csvmTrack the csvmTrack to set
+	 * Set whether the CSVM should be tracked.
+	 * @param csvmTrack true if it should be tracked.
 	 */
 	public void setCsvmTrack(boolean csvmTrack) {
 		this.csvmTrack = csvmTrack;
 	}
+
 	/**
-	 * @return the pvmTrack
+	 * Gets whether the PVM is set to be tracked.
+	 * @return true if it should be tracked.
 	 */
 	public boolean isPvmTrack() {
 		return pvmTrack;
 	}
+
 	/**
-	 * @param pvmTrack the pvmTrack to set
+	 * Set whether the PVM should be tracked.
+	 * @param pvmTrack true if it should be tracked.
 	 */
 	public void setPvmTrack(boolean pvmTrack) {
 		this.pvmTrack = pvmTrack;
 	}
+
 	/**
-	 * @return the spdmTrack
+	 * Gets whether the SPDM is set to be tracked.
+	 * @return true if it should be tracked.
 	 */
 	public boolean isSpdmTrack() {
 		return spdmTrack;
 	}
+
 	/**
-	 * @param spdmTrack the spdmTrack to set
+	 * Set whether the SPDM should be tracked.
+	 * @param spdmTrack true if it should be tracked.
 	 */
 	public void setSpdmTrack(boolean spdmTrack) {
 		this.spdmTrack = spdmTrack;
 	}
+
 	/**
-	 * @return the marketplaceTrack
+	 * Gets whether the Marketplace is set to be tracked.
+	 * @return true if it should be tracked.
 	 */
 	public boolean isMarketplaceTrack() {
 		return marketplaceTrack;
 	}
+
 	/**
-	 * @param marketplaceTrack the marketplaceTrack to set
+	 * Set whether the Marketplace should be tracked.
+	 * @param marketplaceTrack true if it should be tracked.
 	 */
 	public void setMarketplaceTrack(boolean marketplaceTrack) {
 		this.marketplaceTrack = marketplaceTrack;
 	}
+
 	/**
-	 * Return the registered address for the service
-	 * @return the registered address
+	 * Return the registered address for the service.
+	 * @return the registered address.
 	 */
 	public String getRegisterAddress() {
 		return registerAddress;
 	}
+
 	/**
-	 * Set the registered address of the service
-	 * Note this doesn't actual change the address, so should only be used to register the actual address
-	 * @param registerAddress the address the service is registered at
+	 * Set the registered address of the service.
+	 * Note this doesn't actually change the address, so should only be used to register the actual address.
+	 * @param registerAddress the address the service is registered at.
 	 */
 	public void setRegisterAddress(String registerAddress) {
 		this.registerAddress = registerAddress;

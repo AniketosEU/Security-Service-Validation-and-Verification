@@ -27,6 +27,12 @@ import eu.aniketos.data.SPState;
 import eu.aniketos.ncvm.IVerificationResult;
 import eu.aniketos.ncvm.impl.NestedCompositionVerification.AniketosServices;
 
+/**
+ * Class for verifying atomic services. This is particularly useful when verifying a service that
+ * is already registered in the Marketplace.
+ * @author LJMU/David Llewellyn-Jones
+ *
+ */
 public class VerifyAtomic {
 	private String conspec;
 	private String propertyID;
@@ -35,6 +41,15 @@ public class VerifyAtomic {
 	private String details;
 	private String serviceFilter;
 
+	/**
+	 * Initialise the class.
+	 * @param serviceID the ID of the service to check.
+	 * @param propertyID the security property to check.
+	 * @param conspec a ConSpec file for the property to be checked.
+	 * @param call object for managing the external services.
+	 * @param details details of the service to be checked.
+	 * @param serviceFilter apply a filter in case only services with a given ID should be checked.
+	 */
 	public VerifyAtomic(String serviceID, String propertyID, String conspec, AniketosServices call, String details, String serviceFilter) {
 		this.serviceID = serviceID;
 		this.propertyID = propertyID;
@@ -45,36 +60,50 @@ public class VerifyAtomic {
 	}
 	
 	/**
-	 * @param conspec the conspec to set
+	 * Set the ConSpec file of the security property to be checked.
+	 * @param conspec the ConSpec file contents to set.
 	 */
 	public void setConspec(String conspec) {
 		this.conspec = conspec;
 	}
+
 	/**
-	 * @param propertyID the propertyID to set
+	 * Set the property ID of the security property to be checked.
+	 * @param propertyID the property ID to set.
 	 */
 	public void setPropertyID(String propertyID) {
 		this.propertyID = propertyID;
 	}
+
 	/**
-	 * @param serviceID the serviceID to set
+	 * Set the ID of the service to be checked.
+	 * @param serviceID the serviceID of the service to check.
 	 */
 	public void setServiceID(String serviceID) {
 		this.serviceID = serviceID;
 	}
+
 	/**
-	 * @param call the call to set
+	 * Set the stored details of the external services to use.
+	 * @param call object holding details of the external services to use.
 	 */
 	public void setCall(AniketosServices call) {
 		this.call = call;
 	}
+
 	/**
-	 * @param details the details to set
+	 * Details for the verification process.
+	 * @param details the details to set.
 	 */
 	public void setDetails(String details) {
 		this.details = details;
 	}
 
+	/**
+	 * Verify an atomic service that has already been registered in the Marketplace.
+	 * The details for the verification should be set as class variables using the class setters.
+	 * @return true if the verification process verifies that the property holds for the service.
+	 */
 	public IVerificationResult verify () {
 		IVerificationResult result = new VerificationResult();
 		boolean filterMatches = (serviceFilter.isEmpty() || serviceFilter.equalsIgnoreCase(serviceID));
