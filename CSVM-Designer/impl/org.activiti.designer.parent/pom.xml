@@ -24,6 +24,7 @@
 		<module>../org.activiti.designer.export.image</module>
 		<module>../org.activiti.designer.validation.bpmn20</module>
         <!-- <SecureBPMN> -->
+		<module>../com.sun.xacml</module>
 		<module>../eu.aniketos.securebpmn</module>
 		<module>../eu.aniketos.securebpmn.export.html</module>
 		<module>../eu.aniketos.securebpmn.export.aslan</module>
