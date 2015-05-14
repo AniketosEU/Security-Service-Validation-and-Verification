@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://hotelInfo.webservice.demo.wp9.aniketos.eu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="HotelInfo" targetNamespace="http://hotelInfo.webservice.demo.wp9.aniketos.eu/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://hotelInfo.webservice.demo.wp9.aniketos.eu/" elementFormDefault="unqualified" targetNamespace="http://hotelInfo.webservice.demo.wp9.aniketos.eu/" version="1.0">
+<xs:element name="getHotelCoordinates" type="tns:getHotelCoordinates"/>
+<xs:element name="getHotelCoordinatesResponse" type="tns:getHotelCoordinatesResponse"/>
+<xs:element name="getHotelInfo" type="tns:getHotelInfo"/>
+<xs:element name="getHotelInfoResponse" type="tns:getHotelInfoResponse"/>
+<xs:complexType name="getHotelInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="hotelId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getHotelInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getHotelCoordinates">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="hotelId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getHotelCoordinatesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getHotelCoordinatesResponse">
+    <wsdl:part element="tns:getHotelCoordinatesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHotelInfo">
+    <wsdl:part element="tns:getHotelInfo" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHotelInfoResponse">
+    <wsdl:part element="tns:getHotelInfoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHotelCoordinates">
+    <wsdl:part element="tns:getHotelCoordinates" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HotelInfo">
+    <wsdl:operation name="getHotelInfo">
+      <wsdl:input message="tns:getHotelInfo" name="getHotelInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:getHotelInfoResponse" name="getHotelInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHotelCoordinates">
+      <wsdl:input message="tns:getHotelCoordinates" name="getHotelCoordinates">
+    </wsdl:input>
+      <wsdl:output message="tns:getHotelCoordinatesResponse" name="getHotelCoordinatesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HotelInfoSoapBinding" type="tns:HotelInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getHotelCoordinates">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getHotelCoordinates">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getHotelCoordinatesResponse">
+        <soap:body use="literal"/>
+    <wsp:PolicyReference URI="#SimmetricBinding256"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHotelInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getHotelInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getHotelInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HotelInfo">
+    <wsdl:port binding="tns:HotelInfoSoapBinding" name="HotelInfoImplPort">
+      <soap:address location="http://hotelinfo.aniketos.cloudbees.net/services/hotelinfo"/>
+    </wsdl:port>
+  </wsdl:service>
+    <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tcp="http://java.sun.com/xml/ns/wsit/2006/09/policy/soaptcp/service" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sc="http://schemas.sun.com/2006/03/wss/server" xmlns:fi="http://java.sun.com/xml/ns/wsit/2006/09/policy/fastinfoset/service" wsu:Id="SimmetricBinding256">
+<wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" wsu:Id="example">
+    <wsp:ExactlyOne>
+        <wsp:All>
+            <sp:SymmetricBinding>
+                <wsp:Policy>
+                    <sp:ProtectionToken>
+                        <wsp:Policy>
+                            <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                                <wsp:Policy>
+                                    <sp:RequireDerivedKeys/>
+                                    <sp:RequireThumbprintReference/>
+                                    <sp:WssX509V3Token10/>
+                                </wsp:Policy>
+                            </sp:X509Token>
+                        </wsp:Policy>
+                    </sp:ProtectionToken>
+                    <sp:AlgorithmSuite>
+                        <wsp:Policy>
+                            <sp:Basic256Sha256Rsa15/>
+                        </wsp:Policy>
+                    </sp:AlgorithmSuite>
+                    <sp:Layout>
+                        <wsp:Policy>
+                            <sp:Lax/>
+                        </wsp:Policy>
+                    </sp:Layout>
+                    <sp:IncludeTimestamp/>
+                    <sp:EncryptSignature/>
+                    <sp:OnlySignEntireHeadersAndBody/>
+                </wsp:Policy>
+            </sp:SymmetricBinding>
+            <sp:SignedParts>
+                <sp:Body/>
+                <sp:Header Name="To" Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+            </sp:SignedParts>
+            <sp:EncryptedParts>
+                <sp:Body/>
+            </sp:EncryptedParts>
+            <sp:Wss11>
+                <wsp:Policy>
+                    <sp:MustSupportRefKeyIdentifier/>
+                    <sp:MustSupportRefIssuerSerial/>
+                    <sp:MustSupportRefThumbprint/>
+                    <sp:MustSupportRefEncryptedKey/>
+                    <sp:RequireSignatureConfirmation/>
+                </wsp:Policy>
+            </sp:Wss11>
+        </wsp:All>
+    </wsp:ExactlyOne>
+</wsp:Policy>
+
+</wsp:Policy>
+</wsdl:definitions>
