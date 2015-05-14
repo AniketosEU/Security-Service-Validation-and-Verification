@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<specification id="DangerousFunctions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd_aniketos.xsd">
+	<definition>
+		<identifier>DangerousFunctions</identifier>
+	</definition>
+	<maxint>1</maxint>
+	<maxlen>1</maxlen>
+	<scope>global</scope>
+	<securitystate />
+	<rule>
+		<before>
+			<identifier>getRandom</identifier>
+		</before>
+		<perform>
+			<reaction>
+				<guard>
+					<bconst>false</bconst>
+				</guard>
+				<update />
+			</reaction>
+		</perform>
+	</rule>
+	<rule>
+		<before>
+			<identifier>getRandom2</identifier>
+		</before>
+		<perform>
+			<reaction>
+				<guard>
+					<bconst>false</bconst>
+				</guard>
+				<update />
+			</reaction>
+		</perform>
+	</rule>
+</specification>

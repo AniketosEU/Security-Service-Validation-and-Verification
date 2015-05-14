@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<input>
+	<DangerousFunctions>
+		<Name>getRandom</Name>
+		<Name>getRandom2</Name>
+	</DangerousFunctions>
+</input>

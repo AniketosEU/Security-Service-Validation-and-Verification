@@ -1,0 +1,14 @@
+RULE ID DangerousFunctions
+DEFINITION DangerousFunctions()
+MAXINT 1
+MAXLEN 1
+SESSION global
+
+SECURITY STATE
+
+BEFORE v#getRandom() PERFORM
+false -> {skip}
+
+BEFORE v#getRandom2() PERFORM
+false -> {skip}
+
