@@ -11,7 +11,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 	<artifactId>eu.aniketos.securebpmn.export.xacml</artifactId>
 	<packaging>eclipse-plugin</packaging>
 	<name>Activiti Designer - SecureBPMN: XACML Export</name>
-
-	<dependencies>
+    <dependencies>
+    	<dependency>
+    	  <groupId>com.sun.xacml</groupId>
+      <artifactId>sun-xacml</artifactId>
+      <version>0.1</version>
+    	</dependency>
+    </dependencies>
 
 </project>
