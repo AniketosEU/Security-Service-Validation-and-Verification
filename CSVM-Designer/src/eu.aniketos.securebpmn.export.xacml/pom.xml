@@ -14,7 +14,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     <dependencies>
     	<dependency>
     	  <groupId>com.sun.xacml</groupId>
-      <artifactId>sun-xacml</artifactId>
+      <artifactId>com.sun.xacml</artifactId>
       <version>0.1</version>
     	</dependency>
     </dependencies>
