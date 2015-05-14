@@ -1,0 +1,28 @@
+<projectDescription>
+  <name>org.activiti.designer.updatesite</name>
+  <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects>
+    <project>eu.aniketos.securebpmn</project>
+    <project>eu.aniketos.securebpmn.export.aslan</project>
+    <project>eu.aniketos.securebpmn.export.html</project>
+    <project>eu.aniketos.securebpmn.validation.bpmn20</project>
+    <project>org.activiti.designer.eclipse</project>
+    <project>org.activiti.designer.export.bpmn20</project>
+    <project>org.activiti.designer.export.image</project>
+    <project>org.activiti.designer.feature</project>
+    <project>org.activiti.designer.gui</project>
+    <project>org.activiti.designer.help</project>
+    <project>org.activiti.designer.integration</project>
+    <project>org.activiti.designer.model</project>
+    <project>org.activiti.designer.util</project>
+    <project>org.activiti.designer.validation.bpmn20</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>
