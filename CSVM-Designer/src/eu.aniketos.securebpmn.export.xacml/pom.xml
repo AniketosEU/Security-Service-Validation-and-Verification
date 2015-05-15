@@ -13,7 +13,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 	<name>Activiti Designer - SecureBPMN: XACML Export</name>
     <dependencies>
     	<dependency>
-    	  <groupId>com.sun.xacml</groupId>
+		<groupId>org.activiti.designer</groupId>
       <artifactId>com.sun.xacml</artifactId>
       <version>0.1</version>
     	</dependency>
