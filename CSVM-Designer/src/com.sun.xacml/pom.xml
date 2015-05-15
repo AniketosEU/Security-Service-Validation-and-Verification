@@ -7,6 +7,7 @@
     <version>5.8.0</version>
     <relativePath>../org.activiti.designer.parent/pom.xml</relativePath>
   </parent>
+    <groupId>com.sun.xacml</groupId>
   <artifactId>com.sun.xacml</artifactId>
   <packaging>jar</packaging>
   <version>0.1</version>

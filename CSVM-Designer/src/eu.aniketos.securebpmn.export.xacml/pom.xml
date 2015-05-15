@@ -10,11 +10,11 @@
   <artifactId>eu.aniketos.securebpmn.export.xacml</artifactId>
   <packaging>eclipse-plugin</packaging>
   <name>Activiti Designer - SecureBPMN: XACML Export</name>
-  <dependencies>
-    <dependency>
-      <groupId>org.activiti.designer</groupId>
-      <artifactId>com.sun.xacml</artifactId>
-      <version>0.1</version>
-    </dependency>
-  </dependencies>
+    <dependencies>
+      <dependency>
+        <groupId>com.sun.xacml</groupId>
+        <artifactId>com.sun.xacml</artifactId>
+        <version>0.1</version>
+      </dependency>
+    </dependencies>
 </project>
