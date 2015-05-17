@@ -39,6 +39,6 @@ Select the project `org.activiti.designer.eclipse` and select `Run as
 Main developer: [Achim D. Brucker](http://www.brucker.ch/)
 
 ### Contributors
-Jan Alexander
-Matthias Klink
-Raj Ruparel
+* Jan Alexander
+* Matthias Klink
+* Raj Ruparel
