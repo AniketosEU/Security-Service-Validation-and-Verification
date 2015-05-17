@@ -202,6 +202,9 @@ public class ValidationView extends ViewPart {
      */
     @Override
     public void setFocus() {
+    	if(statusText != null){
+    	    statusText.setFocus();
+    	}
     }
 
     /*
