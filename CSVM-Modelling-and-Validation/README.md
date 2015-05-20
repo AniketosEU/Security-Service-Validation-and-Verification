@@ -1,5 +1,5 @@
 # CSVM Modelling and Validation Environment 
-The *CSVM Modeling and Validation Environment is an environment for
+The *CSVM Modeling and Validation Environment* is an environment for
 modelling and validating business processes as well as service
 compositions using
 [SecureBPMN](https://www.brucker.ch/projects/securebpmn/index.en.html).
