@@ -8,7 +8,7 @@
  *
  */
 
-package eu.aniketos.pvm.checks.wsdl;
+package eu.aniketos.pvm.commons;
 
 import java.io.BufferedWriter;
 import java.io.File;
