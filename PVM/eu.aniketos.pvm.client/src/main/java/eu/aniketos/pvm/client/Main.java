@@ -16,7 +16,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+
 import eu.aniketos.pvm.checks.wsdl.*;
+import eu.aniketos.pvm.commons.PVMCoreResult;
 
 import org.apache.commons.codec.binary.Base64;
 

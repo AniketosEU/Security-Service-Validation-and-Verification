@@ -8,7 +8,7 @@
  *
  */
 
-package eu.aniketos.pvm.checks.wsdl;
+package eu.aniketos.pvm.commons;
 
 public class  PVMCoreResult {
     private int result = -1;
