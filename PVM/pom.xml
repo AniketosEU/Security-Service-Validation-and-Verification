@@ -9,6 +9,8 @@
   <packaging>pom</packaging>
   <version>1.0</version> 
   <modules>
+    <module>eu.aniketos.pvm.commons</module>
+    <module>eu.aniketos.pvm.checks.implementation</module>
     <module>eu.aniketos.pvm.checks.wsdl</module>
     <module>eu.aniketos.pvm.client</module>
   </modules>
