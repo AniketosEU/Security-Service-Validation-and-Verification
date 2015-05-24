@@ -16,11 +16,13 @@ secure and business processes as well as secure service compositions.
 
 ### Preparing the Eclipse environment
 To initialize the Eclipse project structure, please do 
-  cd src/com.sun.xacml
-  mvn install 
-  cd ../org.activiti.designer.parent
-  mvn clean eclipse:clean 
-  mvn eclipse:eclipse
+```
+cd src/com.sun.xacml
+mvn install 
+cd ../org.activiti.designer.parent
+mvn clean eclipse:clean 
+mvn eclipse:eclipse
+```
   
 After this, all projects can be imported into a fresh Eclipse
 workspace using `File -> Import -> Existing Projects into Workspace`.
