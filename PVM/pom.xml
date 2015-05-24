@@ -1,33 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/maven-v4_0_0.xsd">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                               http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>eu.aniketos.pvm</groupId>
   <artifactId>eu.aniketos.pvm.parent</artifactId>
   <packaging>pom</packaging>
-  <version>1.0</version> 
+  <version>1.0</version>
   <modules>
+    <module>WALA/com.ibm.wala.core</module>
+    <module>WALA/com.ibm.wala.shrike</module>
+    <module>WALA/com.ibm.wala.cast</module>
+    <module>WALA/com.ibm.wala.cast.java</module>
+    <module>WALA/com.ibm.wala.cast.java.polyglot</module>
     <module>eu.aniketos.pvm.commons</module>
     <module>eu.aniketos.pvm.checks.implementation</module>
     <module>eu.aniketos.pvm.checks.wsdl</module>
     <module>eu.aniketos.pvm.client</module>
   </modules>
-
+  <profiles>
+    <profile>
+      <id>eclipse</id>
+      <modules>
+        <module>eu.aniketos.pvm.commons</module>
+        <module>eu.aniketos.pvm.checks.implementation</module>
+        <module>eu.aniketos.pvm.checks.wsdl</module>
+        <module>eu.aniketos.pvm.client</module>
+      </modules>
+    </profile>
+  </profiles>
   <build>
     <pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.5</source>
-          <target>1.5</target>
-        </configuration>
-      </plugin>
-    </plugins>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.5</source>
+            <target>1.5</target>
+          </configuration>
+        </plugin>
+      </plugins>
     </pluginManagement>
   </build>
-
 </project>
