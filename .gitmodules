@@ -1,0 +1,3 @@
+[submodule "PVM/WALA"]
+	path = PVM/WALA
+	url = git@github.com:wala/WALA.git
