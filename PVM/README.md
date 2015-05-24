@@ -1,7 +1,9 @@
 ## How to Compile  
 First, use maven to make the sources "Eclipse-ready":
-  mvn clean verify -DskipTests=true -q eclipse:clean 
-  mvn -P eclipse eclipse:eclipse
+```
+mvn clean verify -DskipTests=true -q eclipse:clean 
+mvn -P eclipse eclipse:eclipse
+```
 After this, all projects can be imported into a fresh Eclipse
 workspace using `File -> Import -> Existing Projects into Workspace`.
 
