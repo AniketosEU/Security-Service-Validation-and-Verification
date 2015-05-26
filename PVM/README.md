@@ -1,3 +1,5 @@
+# Property Verification Module (PVM)
+
 ## How to Compile  
 First, use maven to make the sources "Eclipse-ready":
 ```
@@ -11,3 +13,11 @@ While many Wala projects may contain compilation errors, the projects
 `eu.aniketos.pvm.checks.implementation`,  `eu.aniketos.pvm.checks.wsdl`,
 `eu.aniketos.pvm.client`, and `eu.aniketos.pvm.commons` should compile
 without errors. 
+
+## Team 
+Main developer: [Achim D. Brucker](http://www.brucker.ch/)
+
+### Contributors
+* Thomas Deuster
+* Michael Herberg
+* Tim Herres
