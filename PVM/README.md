@@ -1,5 +1,14 @@
 # Property Verification Module (PVM)
 
+## Checkout
+Note that this repository imports WALA as a submodule. Thus, 
+you either need to recursively clone this repository or use 
+execute 
+```
+git submodule update --init --recursive
+```
+after cloning the repository.
+
 ## How to Compile  
 First, use maven to make the sources "Eclipse-ready":
 ```
