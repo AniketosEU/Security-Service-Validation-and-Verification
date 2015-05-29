@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- How to format input and result -->
+<result>
+	<DangerousFunctions>
+		<DangerousFunction>
+			<Name> </Name>
+			<Location> </Location>
+		</DangerousFunction>
+	</DangerousFunctions>
+	<InputValidations>
+		<InputValidation>
+			<Function> </Function>
+			<Validated> </Validated>
+		<InputValidation>
+	</InputValidations>
+</result>
+
+<input>
+	<DangerousFunctions>
+		<Name> </Name>
+	</DangerousFunctions>
+	<Slices>
+		<Slice>
+			<TargetFunction> </TargetFunction>
+			<SanitationFunction> </SanitationFunction>
+		</Slice>
+	</Slices>
+</input>
+
+
