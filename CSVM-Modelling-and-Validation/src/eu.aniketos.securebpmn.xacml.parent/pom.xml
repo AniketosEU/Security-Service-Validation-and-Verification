@@ -11,6 +11,7 @@
   </properties>
   <modules>
     <module>../com.sun.xacml</module>
+    <module>../com.sun.xacml.support</module>
   </modules>
   <build>
     <plugins>
