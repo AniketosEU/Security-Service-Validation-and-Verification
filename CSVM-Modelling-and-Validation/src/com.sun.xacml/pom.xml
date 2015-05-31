@@ -2,12 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.activiti.designer</groupId>
-    <artifactId>org.activiti.designer.parent</artifactId>
-    <version>5.8.0</version>
-    <relativePath>../org.activiti.designer.parent/pom.xml</relativePath>
+    <groupId>eu.aniketos.securebpmn.xacml</groupId>
+    <artifactId>eu.aniketos.securebpmn.xacml.parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../eu.aniketos.securebpmn.xacml.parent/pom.xml</relativePath>
   </parent>
-    <groupId>com.sun.xacml</groupId>
   <artifactId>com.sun.xacml</artifactId>
   <packaging>jar</packaging>
   <version>0.1</version>

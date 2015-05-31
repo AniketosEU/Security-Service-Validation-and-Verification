@@ -114,7 +114,7 @@
       <version>2.7.1</version>
     </dependency>
     <dependency>
-      <groupId>com.sun.xacml</groupId>
+      <groupId>eu.aniketos.securebpmn.xacml</groupId>
       <artifactId>com.sun.xacml</artifactId>
       <version>0.1</version>
     </dependency>
