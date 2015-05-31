@@ -17,7 +17,9 @@ secure and business processes as well as secure service compositions.
 ### Preparing the Eclipse environment
 To initialize the Eclipse project structure, please do 
 ```
-cd src/com.sun.xacml
+cd src/eu.aniketos.securebpmn.xacml.parent
+mvn clean eclipse:clean 
+mvn eclipse:eclipse
 mvn install 
 cd ../org.activiti.designer.parent
 mvn clean eclipse:clean 
