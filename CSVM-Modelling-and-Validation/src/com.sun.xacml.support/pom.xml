@@ -10,7 +10,7 @@
   <artifactId>com.sun.xacml.support</artifactId>
   <packaging>jar</packaging>
   <version>0.1</version>
-  <name>SecureBPMN  XACML - com.sun.xacml support utilities</name>
+  <name>SecureBPMN XACML - com.sun.xacml support utilities</name>
   <url>http://maven.apache.org</url>
 <build>
   <plugins>
