@@ -12,6 +12,7 @@
   <modules>
     <module>../com.sun.xacml</module>
     <module>../com.sun.xacml.support</module>
+    <module>../eu.aniketos.securebpmn.xacml.api</module>
   </modules>
   <build>
     <plugins>
