@@ -15,6 +15,7 @@
     <module>../eu.aniketos.securebpmn.xacml.api</module>
     <module>../eu.aniketos.securebpmn.xacml.support</module>
     <module>../eu.aniketos.securebpmn.xacml.pdpstate</module>
+    <module>../eu.aniketos.securebpmn.xacml.pdp</module>
   </modules>
   <build>
     <plugins>
