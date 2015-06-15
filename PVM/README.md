@@ -2,8 +2,7 @@
 
 ## Checkout
 Note that this repository imports WALA as a submodule. Thus, 
-you either need to recursively clone this repository or use 
-execute 
+you either need to recursively clone this repository or execute 
 ```
 git submodule update --init --recursive
 ```
@@ -28,5 +27,5 @@ Main developer: [Achim D. Brucker](http://www.brucker.ch/)
 
 ### Contributors
 * Thomas Deuster
-* Michael Herberg
+* Michael Herzberg
 * Tim Herres
